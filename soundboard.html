@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJÖRK :: SOUND LAB</title>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Cairo:wght@200..1000&family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jura:wght@300..700&family=Metrophobic&family=Michroma&family=Poiret+One&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Bitcount Grid Double', sans-serif;
+            height: 100vh;
+            overflow: hidden; 
+            
+            /* The Gradient Background */
+            background: linear-gradient(180deg,      
+                rgb(214, 209, 249) 10%,    
+                #7d5c7d 30%,                   
+                #0f000f 100%                   
+            );
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+
+        .nav-bar {
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 10px 25px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+ 
+        .nav-bar.top-beans {
+            position: relative;
+            height: 70px;
+            gap: 120px;
+        }
+        .nav-btn.float-bean {
+            will-change: transform;
+            animation: float 6s ease-in-out infinite;
+        }
+        .nav-btn.float-bean.bean-nucleus {
+            background: rgba(255, 80, 238, 0.116);
+            color: #000000;
+            animation-delay: 0s;
+        }
+        .nav-btn.float-bean.bean-discog {
+            background: rgba(246, 255, 0, 0.137);
+            color: #000000;
+            animation-delay: 0.6s;
+        }
+      
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            33% { transform: translateY(-20px) translateX(10px) rotate(2deg); }
+            66% { transform: translateY(10px) translateX(-10px) rotate(-2deg); }
+        }
+
+        .nav-bean {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            letter-spacing: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            padding: 0 24px;
+            min-width: 100px;
+            max-width: 150px;
+            height: 55px;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+        }
+
+
+        .bean-1 {
+            background: rgba(185, 223, 240, 0.176);
+            color: rgb(19, 19, 19);
+            box-shadow: 0 0 30px 8px #7fff7f, inset 0 0 45px rgba(167, 212, 75, 0.674);
+        }
+        .bean-1:hover {
+            background: rgba(127, 255, 127, 0.25);
+            color: #ffffff;
+            box-shadow: 0 0 50px 16px #7fff7f, 0 0 560px 8px #7fff7f, inset 0 0 45px rgba(167, 212, 75, 0.774);
+        }
+
+
+        .bean-2 {
+            background: rgba(255, 183, 250, 0.358);
+            color: #000000;
+            box-shadow: 0 0 30px 8px #ff7fcf, inset 0 0 65px rgba(112, 94, 103, 0.5);
+        }
+        .bean-2:hover {
+            background: rgba(255, 127, 207, 0.25);
+            color: #ffffff;
+            box-shadow: 0 0 50px 16px #ff7fcf, 0 0 30px 8px #ff7fcf, inset 0 0 45px rgba(255, 105, 180, 0.5);
+        }
+
+        /* --- 3. THE SOUND GRID  --- */
+        .sound-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(3, 1fr);    
+            gap: 25px;
+            width: 400px;
+            height: 400px;
+        }
+
+        /* --- 4. THE SOUND BUTTONS  --- */
+        .sound-btn {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px; 
+            
+            background: rgba(0, 0, 0, 0.018);
+            backdrop-filter: blur(8px);
+            border: .5px solid rgba(255, 255, 255, 0.151);
+            box-shadow: 0 5px 10px rgba(74, 4, 19, 0.564);
+            
+            /* TEXT STYLE */
+            color: #ffffff;
+            font-family: 'Bitcount Grid Double', sans-serif;
+            font-weight: 400;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            /* ANIMATION setup */
+            transition: all 0.1s ease;
+            animation: floatSubtle 4s ease-in-out infinite;
+        }
+
+        .sound-btn:nth-child(odd) { animation-duration: 5s; }
+        .sound-btn:nth-child(even) { animation-duration: 6s; animation-delay: 1s; }
+        .sound-btn:nth-child(3n) { animation-duration: 4.5s; animation-delay: 0.5s; }
+
+        /* Click Effect (Active State) */
+        .sound-btn:active {
+            transform: scale(0.95) !important; 
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 100px rgba(30, 2, 49, 0.692);
+            color: #dc9cff;
+        }
+
+        /* Hover Effect */
+        .sound-btn:hover {
+            background: rgba(255, 255, 255, 0.196);
+        }
+
+        /* --- 5. ANIMATION KEYFRAMES --- */
+        @keyframes floatSubtle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); } 
+        }
+.bg-title {
+            position: fixed;
+            top: 5%;
+            width: 100%;
+            text-align: center;
+            font-size: 8rem;
+            font-weight: 500;
+            color: rgba(42, 14, 24, 0.457);
+            text-transform: uppercase;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-title">sound lab</div>
+
+    <div class="nav-bar top-beans" style="margin-top: 30px;">
+        <a href="index.html" class="nav-btn float-bean bean-nucleus">Nucleus</a>
+        <a href="eras.html" class="nav-btn float-bean bean-discog">Discography</a>
+    </div>
+
+    <div class="sound-grid">
+        <button class="sound-btn" onclick="playSound('audio/growl.mp3')">GROWL</button>
+        <button class="sound-btn" onclick="playSound('audio/breath.mp3')">BREATH</button>
+        <button class="sound-btn" onclick="playSound('audio/wail.mp3')">WAIL</button>
+        
+        <button class="sound-btn" onclick="playSound('audio/metal.mp3')">METAL</button>
+        <button class="sound-btn" onclick="playSound('audio/strings.mp3')">STRINGS</button>
+        <button class="sound-btn" onclick="playSound('audio/beat.mp3')">BEAT</button>
+        
+        <button class="sound-btn" onclick="playSound('audio/brass.mp3')">BRASS</button>
+        <button class="sound-btn" onclick="playSound('audio/wind.mp3')">WIND</button>
+        <button class="sound-btn" onclick="playSound('audio/glitch.mp3')">GLITCH</button>
+    </div>
+
+    <div class="nav-bar" style="margin-bottom: 30px;">
+        <a href="natura.html" class="nav-btn nav-bean bean-1">Natura</a>
+        <a href="fashion.html" class="nav-btn nav-bean bean-2">Fashions</a>
+    </div>
+
+    <script>
+        function playSound(file) {
+            var audio = new Audio(file);
+            audio.play().catch(error => {
+                console.log("Audio file not found or browser blocked it: " + file);
+               
+            });
+        }
+    </script>
+
+</body>
+</html>
