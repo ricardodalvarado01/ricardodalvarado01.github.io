@@ -1,1 +1,150 @@
-s1fp/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJÖRK :: NUCLEUS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Bitcount+Grid+Double:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+             font-family: 'Bitcount Grid Double', sans-serif;
+            background: linear-gradient(0deg, hsla(61, 82%, 57%, 1) 0%, hsla(249, 72%, 94%, 1) 45%);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-zoom {
+            animation: zoomIn 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.1); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .nucleus-bubble {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 0, 13, 0.121);
+            backdrop-filter: blur(1px);
+            border-radius: 50%; 
+            color: #000000;
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        .curly-nav {
+            position: absolute;
+            bottom: 05%;
+            width: 180px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            
+            text-decoration: none;
+            color: #2a0e18;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            border-radius: 64% 66% 67% 63% / 65% 68% 62% 65%;
+            background: rgba(203, 130, 255, 0.55);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 60px rgba(196, 4, 255, 0.591);
+            transition: all 0.3s ease;
+            animation: floatWiggle 5s ease-in-out infinite;
+        }
+
+        .curly-nav:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: #ffd2d2b1;
+            color: #8b008b;
+            box-shadow: 0 0 40px rgba(139, 0, 139, 0.4);
+            cursor: pointer;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        /* Float + Wiggle for the bottom button */
+        @keyframes floatWiggle {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+                border-radius: 64% 36% 27% 73% / 55% 58% 42% 45%;
+            }
+            50% { 
+                transform: translateY(-15px) rotate(-3deg); 
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Shape morphs */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="intro-zoom">
+        
+        <div class="nucleus-bubble">
+            <h1> the  BJÖRK :: NUCLEUS </h1>
+            <p>
+               I created this space as a digital tribute to the queen of avant-pop. 
+        Björk she's a genre-bending singer, nature-loving, 
+        technology-embracing alien. From the raw beats of the 90s to her 
+        recent fungal era, she is the blueprint for everything cool.
+            </p>
+
+        </div>
+
+        <a href="eras.html" class="curly-nav">
+            <br> ENTER
+        </a>
+
+    </div>
+
+</body>
+</html>
