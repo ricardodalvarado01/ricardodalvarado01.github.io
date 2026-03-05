@@ -1,3 +1,20 @@
+/* Upper right image link button */
+.corner-image-link {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 200;
+    display: block;
+    transition: transform 0.2s;
+}
+.corner-image-link img {
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    border: 2px solid #fff;
+}
+.corner-image-link:hover {
+    transform: scale(1.12) rotate(-6deg);
+}
 
 body {
     margin: 0;
