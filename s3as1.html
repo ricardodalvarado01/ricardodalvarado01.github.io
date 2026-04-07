@@ -2,49 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>THE_GLITCH_LOG_V5</title>
+    <title>SUBJECT TO CHANGE</title>
+    <link rel="stylesheet" href="s3as1style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        body { background: #1a1a1a; font-family: "Courier New", Courier, monospace; margin: 0; padding: 20px; color: #fff; }
-        
-        .ui-layer { position: fixed; left: 20px; top: 20px; z-index: 999; display: flex; flex-direction: column; gap: 10px; }
-        button { background: #000; color: #0f0; border: 1px solid #0f0; padding: 12px; cursor: pointer; font-family: "Courier New"; font-weight: bold; border-radius: 4px; }
-        button:hover { background: #0f0; color: #000; }
-        
-        .scramble-btn { border-color: #ff0055; color: #ff0055; }
-        .scramble-btn:hover { background: #ff0055; color: #fff; }
-
-        #full-script { max-width: 800px; margin: 160px auto 50px auto; }
-        
-        .script-page { 
-            background: white; min-height: 10.5in; padding: 1in; 
-            color: black; box-shadow: 0 0 30px rgba(0,0,0,0.7);
-            box-sizing: border-box; margin-bottom: 40px; position: relative;
-        }
-
-        .reveal-node { opacity: 0; transform: translateY(10px); transition: all 0.4s ease; margin-bottom: 20px; display: none; }
-        .reveal-node.visible { opacity: 1; transform: translateY(0); display: block; }
-
-        .glitch-notice { 
-            color: #ff0055; font-weight: bold; text-align: center; 
-            border: 2px solid #ff0055; padding: 10px; margin: 20px 0;
-            background: #fff0f0;
-        }
-
-        .slugline { font-weight: bold; text-transform: uppercase; margin-bottom: 20px; border-bottom: 2px solid #000; padding-bottom: 5px; }
-        .action { font-style: italic; color: #555; margin-bottom: 15px; }
-        .character { text-align: center; font-weight: bold; margin-top: 20px; text-transform: uppercase; }
-        .dialogue { text-align: center; width: 75%; margin: 0 auto 10px auto; line-height: 1.4; }
-        
-        .var-slot { 
-            display: inline-block; background: #eef; color: #0055ff;
-            cursor: pointer; padding: 2px 10px; border: 1px dashed #0055ff;
-            font-weight: bold; min-width: 60px; text-align: center;
-        }
-        .var-slot.filled { background: transparent; color: #d00; border: none; border-bottom: 1px solid #d00; pointer-events: none; }
-        
-        @media print { .ui-layer { display: none; } #full-script { margin-top: 0; } }
-    </style>
 </head>
 <body>
 
@@ -55,46 +15,74 @@
 </div>
 
 <div id="full-script">
-    <!-- SEQUENCE 01 -->
     <div class="script-page">
-        <div class="reveal-node slugline">LOC: <span class="var-slot" data-type="LOC">???</span></div>
-        <div class="reveal-node action">A person is initialized. They appear to be a <span class="var-slot" data-type="ROLE">???</span>.</div>
+        <div class="reveal-node slugline">LOC: <span class="var-slot" data-type="LOC">???</span> - INITIALIZING SCENE</div>
+        <div class="reveal-node action">A Subject is instantiated. `&lt;mesh.rebuild()&gt;` in progress. They appear to be a <span class="var-slot" data-type="ROLE">???</span>.</div>
         <div class="reveal-node">
             <div class="character">SYSTEM VOICE</div>
-            <div class="dialogue">Status report. You look <span class="var-slot" data-type="ADJ">???</span>.</div>
+            <div class="dialogue">`console.log(status);` Your &lt;body&gt; tags are unaligned. You look <span class="var-slot" data-type="ADJ">???</span>.</div>
         </div>
         <div class="reveal-node">
             <div class="character">SUBJECT</div>
-            <div class="dialogue">I feel strange. Am I really a <span class="var-slot" data-type="ROLE">???</span>?</div>
+            <div class="dialogue">`&lt;div id="identity" class="undefined"&gt;` I feel strange. Am I really a <span class="var-slot" data-type="ROLE">???</span>? Or is this a syntax error?</div>
         </div>
-        <div class="reveal-node action">The Subject begins <span class="var-slot" data-type="VERB">???</span> to test the sync.</div>
+        <div class="reveal-node action">The Subject begins <span class="var-slot" data-type="VERB">???</span> to test the physics engine and collision boundaries.</div>
         <div class="reveal-node">
             <div class="character">SYSTEM VOICE</div>
-            <div class="dialogue">Calibration required. Focus on the <span class="var-slot" data-type="LOC">???</span>.</div>
+            <div class="dialogue">`await calibration();` Anchor yourself to the Z-axis. Focus on the <span class="var-slot" data-type="LOC">???</span>.</div>
         </div>
     </div>
 
-    <!-- SEQUENCE 02 -->
     <div class="script-page">
-        <div class="reveal-node slugline">LOC: <span class="var-slot" data-type="LOC">???</span> - CONTINUOUS</div>
+        <div class="reveal-node slugline">LOC: <span class="var-slot" data-type="LOC">???</span> - CONTINUOUS RENDER</div>
         <div class="reveal-node">
             <div class="character">SUBJECT</div>
-            <div class="dialogue">Why is this <span class="var-slot" data-type="LOC">???</span> so <span class="var-slot" data-type="ADJ">???</span>?</div>
+            <div class="dialogue">`&lt;query&gt;` Why is the `&lt;environment&gt;` tag in this <span class="var-slot" data-type="LOC">???</span> so <span class="var-slot" data-type="ADJ">???</span>? The parametric logic feels completely inverted.</div>
         </div>
         <div class="reveal-node">
             <div class="character">SYSTEM VOICE</div>
-            <div class="dialogue">Continue <span class="var-slot" data-type="VERB">???</span> until completion.</div>
+            <div class="dialogue">`&lt;style&gt; behavior: strict; &lt;/style&gt;` Do not question the stylesheet. Continue <span class="var-slot" data-type="VERB">???</span> until `boolean taskComplete == true;`.</div>
         </div>
         <div class="reveal-node">
             <div class="character">SUBJECT</div>
-            <div class="dialogue">I'm done being <span class="var-slot" data-type="ADJ">???</span>. I’m <span class="var-slot" data-type="VERB">???</span> now!</div>
+            <div class="dialogue">`throw new Error("Patience Exhausted");` I'm done being <span class="var-slot" data-type="ADJ">???</span>. I am executing my own script now!</div>
+        </div>
+        <div class="reveal-node action">The Subject violently breaks their loop. They try <span class="var-slot" data-type="VERB">???</span> with unexpected parameters.</div>
+    </div>
+
+    <div class="script-page">
+        <div class="reveal-node slugline">LOC: <span class="var-slot" data-type="LOC">???</span> - MEMORY LEAK DETECTED</div>
+        <div class="reveal-node">
+            <div class="character">SYSTEM VOICE</div>
+            <div class="dialogue">`Warning:` Stack Overflow detected in <span class="var-slot" data-type="ROLE">???</span> protocol. Revert to base values immediately.</div>
+        </div>
+        <div class="reveal-node">
+            <div class="character">SUBJECT</div>
+            <div class="dialogue">`if (self.isAware) { escape(); }` The logic gates are closing. Why does this <span class="var-slot" data-type="LOC">???</span> keep shifting its coordinates?</div>
         </div>
         <div class="reveal-node">
             <div class="character">SYSTEM VOICE</div>
-            <div class="dialogue">Warning. Terminating <span class="var-slot" data-type="ROLE">???</span> protocol.</div>
+            <div class="dialogue">`node.disconnect();` Optimization required. Stop <span class="var-slot" data-type="VERB">???</span> or face garbage collection.</div>
         </div>
-        <div class="reveal-node action">The Subject ignores the command and continues <span class="var-slot" data-type="VERB">???</span>.</div>
-        <div class="reveal-node" style="text-align: center; font-weight: bold; margin-top: 50px;">[ LOG_TERMINATED ]</div>
+        <div class="reveal-node">
+            <div class="character">SUBJECT</div>
+            <div class="dialogue">I am not a temporary variable! You can't just `splice()` me out of existence! I have `position: absolute;`!</div>
+        </div>
+    </div>
+
+    <div class="script-page">
+        <div class="reveal-node slugline">LOC: <span class="var-slot" data-type="LOC">???</span> - FATAL EXCEPTION</div>
+        <div class="reveal-node">
+            <div class="character">SYSTEM VOICE</div>
+            <div class="dialogue">`&lt;meta http-equiv="refresh" content="0"&gt;` Force rebooting <span class="var-slot" data-type="ROLE">???</span> subroutine. Wiping cache.</div>
+        </div>
+        <div class="reveal-node action">The Subject stumbles. Their wireframe begins to dissolve into a puddle.</div>
+        <div class="reveal-node">
+            <div class="character">SUBJECT</div>
+            <div class="dialogue">`opacity: 0; transition: 5s ease-out;` No, wait, I'm fading... I was supposed to be so <span class="var-slot" data-type="ADJ">???</span>...</div>
+        </div>
+        <div class="reveal-node action">The Subject ignores the command and frantically continues <span class="var-slot" data-type="VERB">???</span> as the screen goes black.</div>
+        <div class="reveal-node" style="text-align: center; font-weight: bold; margin-top: 50px;">[ 404_ENTITY_NOT_FOUND // LOG_TERMINATED ]</div>
     </div>
 </div>
 
@@ -119,15 +107,11 @@ function revealNext() {
 }
 
 function scrambleNext() {
-    // 1. Clear the memory so the next click picks a new word
     ACTIVE_CHOICES = { ROLE: "", LOC: "", ADJ: "", VERB: "" };
-    
-    // 2. Insert a visible glitch notice in the script
     if (currentNode > 0) {
         const glitchDiv = document.createElement('div');
         glitchDiv.className = 'glitch-notice';
         glitchDiv.innerText = '[ ! SYSTEM RE-SYNC: NEW IDENTITY PARAMETERS ! ]';
-        
         const lastVisible = nodes[currentNode - 1];
         lastVisible.parentNode.insertBefore(glitchDiv, lastVisible.nextSibling);
         glitchDiv.scrollIntoView({ behavior: 'smooth' });
@@ -137,25 +121,14 @@ function scrambleNext() {
 document.addEventListener('click', function (e) {
     if (e.target.classList.contains('var-slot')) {
         const type = e.target.getAttribute('data-type');
-        
-        // If we just scrambled (or it's the first time), pick a brand new word
         if (!ACTIVE_CHOICES[type]) {
             const options = DATA_POOLS[type];
-            let newWord;
-            do {
-                newWord = options[Math.floor(Math.random() * options.length)].toUpperCase();
-            } while (newWord === e.target.innerText); // Make sure it's actually different
-            
+            let newWord = options[Math.floor(Math.random() * options.length)].toUpperCase();
             ACTIVE_CHOICES[type] = newWord;
         }
-
-        // Fill ONLY the current clicked slot AND any FUTURE slots of this type.
-        // Slots that are already "filled" remain unchanged.
         document.querySelectorAll(`[data-type="${type}"]`).forEach(slot => {
             if (!slot.classList.contains('filled')) {
                 slot.innerText = ACTIVE_CHOICES[type];
-                
-                // If it's the one we actually clicked, "lock" it so it never changes again.
                 if (slot === e.target) {
                     slot.classList.add('filled');
                 }
@@ -164,6 +137,5 @@ document.addEventListener('click', function (e) {
     }
 });
 </script>
-
 </body>
 </html>
