@@ -3,46 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Forced Reset | Study Better</title>
+    <title>Root & Roam | Automate Your Breaks</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="s3as2style.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">🌱 The Forced Reset</div>
+        <div class="logo">🌱 Root & Roam</div>
         <a href="#download" class="nav-button">Get the Applet</a>
     </nav>
 
     <section class="scene dark-scene">
         <div class="content-wrapper">
             <div class="text-block">
-                <h1>Sitting here for 4 hours isn't working.</h1>
-                <p>Your brain is running low on oxygen. The material isn't sticking, and you're just staring at a wall. It's time for an intervention.</p>
+                <h1>We've all been here.</h1>
+                <p>You’re stressed, your head is spinning, and you feel stuck. The material isn’t sticking, and you're just staring at a wall. It's time for an intervention.</p>
             </div>
             <img src="studying.JPG" alt="Character studying in the dark" class="floating-image">
         </div>
     </section>
 
     <section class="scene scroll-reveal-section" id="how-it-works">
-        <div class="scroll-spacer"></div>
+        <div class="scrolling-background"></div>
 
-        <div class="reveal-content">
-            <div class="text-block card-style align-center">
-                <span class="badge">The Logic</span>
-                <h2>How it works.</h2>
-                <p><strong>IF:</strong> 90 minutes pass without a break.</p>
-                <p><strong>THEN:</strong> The system gently (but firmly) reminds you to step outside and touch grass.</p>
+        <div class="character-viewport">
+            <img src="characterwalk_isolated.png" alt="Roaming character" class="roaming-character" id="animated-sprout">
+        </div>
+
+        <div class="scrollytelling-content">
+            
+            <div class="scroll-step">
+                <div class="card-style card-light">
+                    <h2>Meet Sprout.</h2>
+                    <p>Struck by the same screen burnout, Sprout finally decided to listen to their body.</p>
+                </div>
             </div>
+
+            <div class="scroll-step">
+                <div class="card-style card-light">
+                    <p>But building that habit is difficult when deadlines loom.</p>
+                </div>
+            </div>
+
+            <div class="scroll-step">
+                <div class="card-style card-dark">
+                    <span class="badge">The Automatic Reset</span>
+                    <h2>The Logic.</h2>
+                    <p><strong>IF:</strong> 90 minutes pass without a break.</p>
+                    <p><strong>THEN:</strong> Root & Roam automatically reminds you to step outside, stretch, and reconnect.</p>
+                </div>
+            </div>
+            
         </div>
     </section>
 
     <section class="scene white-scene">
         <div class="content-wrapper">
-            <div class="text-block">
+            <div class="text-block text-extended">
                 <span class="badge green-badge">The Science</span>
-                <h2>Walking fixes the hardware.</h2>
-                <p>Blood flow increases. Memory retention spikes. Consider this routine biological maintenance for your study sessions.</p>
+                <h2>Why roaming works.</h2>
+                
+                <div class="science-point">
+                    <h3>1. Attention Restoration</h3>
+                    <p>Screens drain your "directed attention." Natural environments trigger "soft fascination," which actively recharges your cognitive battery.</p>
+                </div>
+
+                <div class="science-point">
+                    <h3>2. The Diffuse Mode</h3>
+                    <p>Stepping away activates your brain's Default Mode Network. This background processing state is where complex concepts finally "click" together.</p>
+                </div>
+
+                <div class="science-point">
+                    <h3>3. Memory Consolidation</h3>
+                    <p>A 15-minute walk physically pumps oxygenated blood to the hippocampus, helping lock short-term study material into long-term memory.</p>
+                </div>
             </div>
             <img src="brainimpact.jpg" alt="Brain icon" class="icon-image">
         </div>
@@ -51,8 +86,8 @@
     <section class="scene green-scene" id="download">
         <div class="content-wrapper flip-layout">
             <div class="text-block align-center">
-                <h2>You retain more.<br>You feel better.</h2>
-                <p>Ready to automate your study breaks?</p>
+                <h2>Recharge your focus.</h2>
+                <p>Automated breaks reduce the cognitive load of decision-making. Root & Roam forces a visual reset so you can return to your desk with clear eyes and renewed focus.</p>
                 <a href="#" class="primary-button">Download the IFTTT Recipe</a>
             </div>
             <img src="characterafter.jpg" alt="Character happy and glowing" class="floating-image">
@@ -60,8 +95,47 @@
     </section>
 
     <footer>
-        <p>© 2024 The Forced Reset. Built for Art of the Web.</p>
+        <p>© 2026 Root & Roam. Built for Art of the Web.</p>
     </footer>
 
+    <script>
+        // Listen for the scroll event
+        window.addEventListener('scroll', function() {
+            const section = document.getElementById('how-it-works');
+            const sprout = document.getElementById('animated-sprout');
+            
+            if (!section || !sprout) return;
+
+            // Get bounding coordinates of the section relative to the viewport
+            const rect = section.getBoundingClientRect();
+            
+            // Check if the section is currently on the screen
+            const sectionIsVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (sectionIsVisible) {
+                // Calculate how far the user has scrolled through Section 2 as a decimal (0.0 to 1.0)
+                const scrollDistanceThroughSection = -rect.top;
+                const totalSectionScrollLength = section.offsetHeight - window.innerHeight;
+                
+                let percentageThrough = scrollDistanceThroughSection / totalSectionScrollLength;
+
+                // Clamp the value between 0 and 1 to prevent issues
+                percentageThrough = Math.min(1, Math.max(0, percentageThrough));
+
+                // Calculate movement. We start at right: -300px (off-screen)
+                // We want them to stop at right: 80% (which means 20% from the left edge)
+                const startPosition = -300; // Pixels from right
+                const stopPositionPercentage = 80; // Percent of viewport width from right
+                
+                const viewportWidth = window.innerWidth;
+                const endPositionInPixels = (viewportWidth * stopPositionPercentage) / 100;
+                const distanceToTravel = endPositionInPixels - startPosition;
+
+                // Apply the transformation. The transition: linear rule in CSS will smooth it.
+                const moveX = (distanceToTravel * percentageThrough);
+                sprout.style.transform = `translateX(${-moveX}px)`; 
+            }
+        });
+    </script>
 </body>
 </html>
