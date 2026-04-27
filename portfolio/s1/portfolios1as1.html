@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S1AS1: ASCII Cards</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; /* Flat ultramarine blue */
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.6;
+        user-select: text; 
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #E2E6FF;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    ul {
+        list-style-type: square;
+        padding-left: 20px;
+        margin-bottom: 2rem;
+    }
+
+    li {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .concept-block {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+    .axis-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .axis-box {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+    }
+
+    .axis-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .ascii-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 2rem;
+    }
+
+    .ascii-card {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ascii-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .ascii-desc {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+        opacity: 0.8;
+    }
+
+    .ascii-string {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        word-break: break-all;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .ascii-quote {
+        margin-top: auto;
+        font-size: 0.85rem;
+        font-style: italic;
+        border-left: 2px solid #E2E6FF;
+        padding-left: 10px;
+    }
+
+    .ascii-author {
+        display: block;
+        font-size: 0.75rem;
+        font-style: normal;
+        margin-top: 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <a href="index.html" class="back-btn">← Back to Index</a>
+    </div>
+
+    <h1>Visual Communication System</h1>
+
+    <div class="concept-block">
+        <p>We used the sandbox constraints to design a visual communication system in which symbolic characters serve as tonal information, cultural signifiers, and identity markers.</p>
+    </div>
+
+    <h2>Base System</h2>
+    <ul>
+        <li>We worked within text-only constraints (ASCII environment).</li>
+        <li>We treated characters as visual pixels.</li>
+        <li>We organized them into a value hierarchy from dark → light.</li>
+        <li>Density of symbol = amount of shadow.</li>
+        <li>Spacing = highlight / negative space.</li>
+        <li>Instead of using neutral characters (#, +, .), we replaced tonal markers with culturally loaded symbols.</li>
+    </ul>
+
+    <h2>Structure of Symbol Language</h2>
+    <p>Each celebrity is rendered using a customized value scale composed of symbols that match their cultural archetype.</p>
+    
+    <div class="axis-grid">
+        <div class="axis-box">
+            <span class="axis-title">Axis 1 — Rank (Social Role)</span>
+            King / Queen / Joker<br>
+            <em>Cultural Status</em>
+        </div>
+        <div class="axis-box">
+            <span class="axis-title">Axis 2 — Suit (Energy Type)</span>
+            ♠ Psychological<br>
+            ♥ Emotional<br>
+            ♦ Image / Glamour<br>
+            ♣ Physical / Performative
+        </div>
+    </div>
+
+    <div class="concept-block">
+        <p>ASCII art already reduces images into symbolic code. Celebrity culture does something similar. It reduces complex humans into simplified archetypes like ‘queen,’ ‘icon,’ or ‘villain.’ Our system overlays these two reduction processes.</p>
+        <p>The final portraits are diagrams of how culture codes identity, translated into a digital language system.</p>
+    </div>
+
+    <h2>ASCII System Dictionary</h2>
+    
+    <div class="ascii-grid">
+        <div class="ascii-card">
+            <div class="ascii-title">Joker</div>
+            <div class="ascii-desc">chaotic, sharp, and unstable</div>
+            <div class="ascii-string">JØK☠♣♠***++==--::..</div>
+            <div class="ascii-quote">
+                “Name one genius that ain’t crazy.”
+                <span class="ascii-author">Kanye West</span>
+            </div>
+        </div>
+
+        <div class="ascii-card">
+            <div class="ascii-title">Queen</div>
+            <div class="ascii-desc">ornate, elegant, and curved</div>
+            <div class="ascii-string">♛QØOooo**++==--::..</div>
+            <div class="ascii-quote">
+                “Diva is a female version of a hustler.”
+                <span class="ascii-author">Beyoncé</span>
+            </div>
+        </div>
+
+        <div class="ascii-card">
+            <div class="ascii-title">King</div>
+            <div class="ascii-desc">bold, structured, authority</div>
+            <div class="ascii-string">♚♔K#%%XX++==--::..</div>
+            <div class="ascii-quote">
+                "I don't sing it if I don't mean it."
+                <span class="ascii-author">Michael Jackson</span>
+            </div>
+        </div>
+
+        <div class="ascii-card">
+            <div class="ascii-title">Spades</div>
+            <div class="ascii-desc">sharp, dramatic</div>
+            <div class="ascii-string">♠♤▲^**++==--::..</div>
+            <div class="ascii-quote">
+                “I’m the bad guy.”
+                <span class="ascii-author">Billie Eilish</span>
+            </div>
+        </div>
+
+        <div class="ascii-card">
+            <div class="ascii-title">Diamonds</div>
+            <div class="ascii-desc">sparkling, crisp, glamour</div>
+            <div class="ascii-string">♦♢<>**++==--::..</div>
+            <div class="ascii-quote">
+                “Sh

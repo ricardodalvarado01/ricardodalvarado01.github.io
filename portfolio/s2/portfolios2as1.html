@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S2AS1: COLLABORATIVE WEBRING</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; /* Flat ultramarine blue */
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.6;
+        user-select: text; 
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #E2E6FF;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+        border-bottom: 1px dashed #E2E6FF;
+        padding-bottom: 5px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .concept-block {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+    .grid-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .box {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+        color: #E2E6FF;
+    }
+
+    .sticker-showcase {
+        border: 1px solid #ff3333; /* Constructivist red accent */
+        background-color: #040510;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .sticker-placeholder {
+        width: 150px;
+        height: 150px;
+        border: 2px dashed #ff3333;
+        border-radius: 50%; /* Making it round to simulate a sticker */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: #ff3333;
+        margin-bottom: 20px;
+    }
+
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <a href="portfolio.html" class="back-btn">← Back</a>
+    </div>
+
+    <h1>S2AS1: ART OF THE WEB/RING</h1>
+
+    <div class="concept-block">
+        <p>For this collaborative class assignment, we were tasked with designing and deploying modular code to link all of our individual web publications into a continuous, looping Web Ring. The challenge was to retroactively patch this navigation feature into our pre-existing sites without disrupting their established visual identities or breaking the user experience.</p>
+    </div>
+
+    <div class="sticker-showcase">
+        <div class="sticker-placeholder">
+<SRC:m></SRC:m>
+        </div>
+        <p style="margin: 0; color: #ff3333; font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">The Modular Node</p>
+    </div>
+
+    <h2>Design & Integration Strategy</h2>
+    
+    <div class="grid-2col">
+        <div class="box">
+            <span class="box-title">The Sticker Motif</span>
+            <p>Rather than dropping a generic, hyperlinked text block or a standard button onto my page, I designed a specific "sticker" icon to serve as my node in the Web Ring. I thought carefully about how to incorporate this visual within the context of my existing website design. The sticker acts as a diegetic element—it feels like it naturally belongs in the environment rather than looking like an intrusive, mandatory class requirement.</p>
+        </div>
+        
+        <div class="box">
+            <span class="box-title">Reassigning Hierarchy</span>
+            <p>While the obvious solution would be to place the Web Ring link on the starter/home page, I intentionally decided against it. I placed the sticker on the second page of my site, which focuses on the discography. This decision retroactively shifted the hierarchy of my publication, turning a deeper page into an active transit hub.</p>
+        </div>
+
+        <div class="box">
+            <span class="box-title">Controlling User Flow</span>
+            <p>By burying the exit link on the second page, I actively manipulated the user journey. When a visitor arrives at my site from the previous student's page in the ring, they aren't immediately presented with the exit door. They are forced to wander a bit into my own introductory content, establishing context before they are allowed to hop to the next user's publication.</p>
+        </div>
+
+        <div class="box">
+            <span class="box-title">The Modular Code</span>
+            <p>The code itself was designed to be lightweight and modular so it could be easily injected into the existing HTML/CSS structure. It connects the fragmented class projects into a single, cohesive network, honoring the early-internet tradition of web rings while prioritizing modern layout constraints.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S2AS2: Japan Travel Archive</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; 
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.6;
+        user-select: text; 
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin-bottom: 1rem;
+    }
+
+    .project-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #ff3333; /* Constructivist red accent */
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        border-bottom: 2px solid #ff3333;
+        padding-bottom: 2px;
+    }
+
+    .project-link:hover {
+        background-color: #ff3333;
+        color: #0014f4;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+        border-bottom: 1px dashed #E2E6FF;
+        padding-bottom: 5px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .concept-block {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+    .grid-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .box {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+        color: #E2E6FF;
+    }
+
+    .artifact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #E2E6FF;
+    }
+
+    .artifact-item {
+        padding: 15px 0;
+        border-bottom: 1px solid #E2E6FF;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .artifact-name {
+        font-weight: 700;
+        color: #ff3333;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .artifact-desc {
+        font-size: 0.85rem;
+        opacity: 0.9;
+        text-align: right;
+        max-width: 60%;
+    }
+
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <a href="portfolio.html" class="back-btn">← Back</a>
+    </div>
+
+    <h1>S2AS2: Japan Travel Archive</h1>
+    <a href="https://ricardodalvarado01.github.io/index" target="_blank" class="project-link">↗ View the Live Archive</a>
+
+    <div class="concept-block">
+        <p>This project serves as a digital archive of physical transit and entry stubs collected during an architectural research trip to Japan in early 2026. Traveling from Philadelphia to sites across Tokyo, Kyoto, and Naoshima Island, the collection functions as a spatial and temporal map of the journey. By utilizing CSS interaction states, the site transforms flat, scanned ephemera into interactive portals that reveal the specific memories and spatial qualities associated with each location.</p>
+    </div>
+
+    <h2>Technical Execution</h2>
+    
+    <div class="grid-2col">
+        <div class="box">
+            <span class="box-title">Interaction via Selectors</span>
+            <p>The core mechanic relies heavily on CSS pseudo-classes (<code>:hover</code>, <code>:active</code>, <code>:focus</code>) rather than JavaScript. By instructing the user to "Hold to view," the site utilizes the <code>:active</code> state on the <code>.ticket-item</code> containers to trigger the visibility of a hidden <code>.popout-overlay</code>. Releasing the click naturally reverts the DOM element to its hidden state, creating a tactile, physical interaction model.</p>
+        </div>
+        
+        <div class="box">
+            <span class="box-title">Viewport Accommodations</span>
+            <p>To serve alternate user experiences across devices, the site implements responsive design strategies. A combination of viewport ratio properties (vw/vh) ensures the ticket stack scales proportionately, while <code>@media</code> queries reorganize the flex/grid layouts so the overlay images remain legible and properly framed whether viewed on a desktop monitor or a mobile screen.</p>
+        </div>
+
+        <div class="box">
+            <span class="box-title">Optimization & Constraint</span>
+            <p>Loading 10 distinct images (5 ticket scans, 5 high-resolution photographs) required strict asset optimization to ensure the entire page weight remained under the 1MB assignment limit. Images were compressed and sized specifically for their maximum rendered dimensions within the DOM.</p>
+        </div>
+
+        <div class="box">
+            <span class="box-title">Semantic Metadata</span>
+            <p>Rather than treating the <code>alt</code> text as a mere accessibility afterthought, this project utilizes metadata as an invisible layer of narrative. The alt text for the hidden photographs reads as a poetic travel log—describing Tadao Ando's concrete, the blur of the Shinkansen, and the urban scale of Tokyo—offering a rich, alternative textual experience.</p>
+        </div>
+    </div>
+
+    <h2>Archived Artifacts</h2>
+    <ul class="artifact-list">
+        <li class="artifact-item">
+            <span class="artifact-name">01. United Airlines Boarding Pass</span>
+            <span class="artifact-desc">EWR to HND — The 14-hour suspension.</span>
+        </li>
+        <li class="artifact-item">
+            <span class="artifact-name">02. Nozomi Super Express</span>
+            <span class="artifact-desc">Tokyo to Kyoto — Watching Mount Fuji through the glass.</span>
+        </li>
+        <li class="artifact-item">
+            <span class="artifact-name">03. Tokyo Skytree Admission</span>
+            <span class="artifact-desc">Tembo Deck — Understanding the endless urban tapestry.</span>
+        </li>
+        <li class="artifact-item">
+            <span class="artifact-name">04. Sanrio Pasmo Card</span>
+            <span class="artifact-desc">Transit Pass — Navigating the turnstiles of Shinjuku.</span>
+        </li>
+        <li class="artifact-item">
+            <span class="artifact-name">05. Chichu Art Museum</span>
+            <span class="artifact-desc">Naoshima Island — Tadao Ando's concrete framing the sky.</span>
+        </li>
+    </ul>
+
+</div>
+
+</body>
+</html>
