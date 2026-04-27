@@ -1,0 +1,165 @@
+/* --- Global Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0a0a0a; /* Dark 'inside of bag' aesthetic */
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100; /* Modern thin look */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header, footer {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+header h1 {
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+/* --- The Ticket Stack (Untangled breathing room) --- */
+.ticket-stack {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    perspective: 1200px; /* Perspective for 3D hover effects */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ticket-item {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    outline: none;
+    margin-top: -40px; /* Moderate overlap */
+}
+
+.ticket-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    filter: brightness(0.7);
+    transition: all 0.4s ease;
+}
+
+/* --- Base Perspective Rotations --- */
+.ticket-item:nth-child(1) { transform: rotate(-2deg); z-index: 1; }
+.ticket-item:nth-child(2) { transform: rotate(1.5deg); z-index: 2; }
+.ticket-item:nth-child(3) { transform: rotate(-1deg); z-index: 3; }
+.ticket-item:nth-child(4) { transform: rotate(2.5deg); z-index: 4; }
+.ticket-item:nth-child(5) { transform: rotate(-3deg); z-index: 5; }
+
+/* --- Interaction Styles (:hover, :active, :focus) --- */
+
+/* Messy Hover - flying out randomly */
+.ticket-item:hover, .ticket-item:focus {
+    z-index: 100 !important;
+}
+
+.ticket-item:hover img, .ticket-item:focus img {
+    filter: brightness(1);
+    box-shadow: 0 30px 60px rgba(0,0,0,1);
+}
+
+/* Randomized messy movements on hover */
+.ticket-item:nth-child(1):hover { transform: rotate(-8deg) translateX(-40px) translateZ(80px); }
+.ticket-item:nth-child(2):hover { transform: rotate(10deg) translateX(50px) translateZ(80px); }
+.ticket-item:nth-child(3):hover { transform: rotate(-5deg) translateY(-30px) translateZ(80px); }
+.ticket-item:nth-child(4):hover { transform: rotate(12deg) translateX(40px) translateZ(80px); }
+.ticket-item:nth-child(5):hover { transform: rotate(-10deg) translateX(-60px) translateZ(80px); }
+
+.ticket-item:focus {
+    outline: 1px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 15px;
+}
+
+/* Ticket Info Reveal */
+.ticket-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.85);
+    padding: 10px 15px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+}
+
+.ticket-item:hover .ticket-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Click Pop-Up Overlay (:active) --- */
+.popout-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+}
+
+.popout-content {
+    max-width: 900px;
+    width: 90%;
+    transform: scale(0.8);
+    transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.popout-content img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Activate pop-up on click */
+.ticket-item:active .popout-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ticket-item:active .popout-content {
+    transform: scale(1);
+}
+
+/* --- Media Rules (Viewport Accommodations) --- */
+
+/* 1. Desktop - Spread the stack slightly more */
+@media screen and (min-width: 1025px) {
+    .ticket-stack { padding: 200px 20px; }
+}
+
+/* 2. Tablet - Adjust overlap density */
+@media screen and (max-width: 1024px) {
+    .ticket-item { max-width: 400px; }
+}
+
+/* 3. Mobile - Remove messy hover to ensure usability */
+@media screen and (max-width: 600px) {
+    header h1 { font-size: 1.2rem; }
+    .ticket-item:not(:first-child) { margin-top: -60px; }
+    .ticket-item:hover { transform: scale(1.05) translateZ(50px) !important; }
+    .ticket-info { display: none; } /* Simpler UI for mobile */
+}
