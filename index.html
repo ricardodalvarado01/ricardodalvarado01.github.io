@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Layout</title>
+    <link rel="stylesheet" href="portfoliostyle.css">
+</head>
+<body>
+
+<div class="canvas" id="canvas">
+    
+    <div class="center-logo">
+        <img src="art-of-the-web-portfolio-site-center-logo.gif" alt="This is my logo for this prortfolio website, it's supposed to evoke a sense of a low effort, fanwebsite, like a geo-cities style page.">
+    </div>
+    
+    <div class="draggable" data-info-url="/portfolio/s1/portfolios1as2.html" data-site-url="https://codepen.io/ricardodalvarado/pen/NPrgVeX" style="top: 15%; left: 20%; z-index: 1;">
+        <img src="/images/s1as2portfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>CSS.Still Life</span>
+    </div>
+    
+    <div class="draggable" data-info-url="/portfolio/s1/portfolios1as1.html" data-site-url="https://codepen.io/ricardodalvarado/pen/VYjrWbY" style="top: 40%; left: 10%; z-index: 2;">
+        <img src="/images/s1as1portfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>ASCII CARDS</span>
+    </div>
+    
+    <div class="draggable" data-info-url="/portfolio/s1/portfolios1fp.html" data-site-url="/s1fp/index.html" style="top: 25%; left: 45%; z-index: 3;">
+        <img src="/images/s1fpportfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>Bjork FANPAGE</span>
+    </div>
+    
+    <div class="draggable" data-info-url="/portfolio/s2/portfolios2as1.html" data-site-url="/s1fp/eras.html" style="top: 60%; left: 35%; z-index: 4;">
+       <img src="/images/webringportfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>Art of the Web/Ring</span>
+    </div>
+    
+    <div class="draggable" data-info-url="/portfolio/s2/portfolios2as2.html" data-site-url="/s2as2/s2as2.html" style="top: 10%; left: 70%; z-index: 5;">
+        <img src="/images/s2as2portfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>Travel Archive</span>
+    </div>
+    
+    <div class="draggable" data-info-url="/portfolio/s2/portfolios2fp.html" data-site-url="https://editor.p5js.org/ricardodalvarado01/sketches/25J9dxFrn" style="top: 50%; left: 65%; z-index: 6;">
+        <img src="/images/s2fpportfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>WEIGHT OF THE PRESENT</span>
+    </div>
+
+    <div class="draggable" data-info-url="/portfolio/s3/portfolios3as1.html" data-site-url="/s3as1/s3as1.html" style="top: 75%; left: 15%; z-index: 7;">
+        <img src="/images/s3as1portfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>SUBJECT TO CHANGE</span>
+    </div>
+
+    <div class="draggable" data-info-url="/portfolio/s3/portfolios3as2.html" data-site-url="/s3as2/s3as2.html" style="top: 80%; left: 55%; z-index: 8;">
+        <img src="/images/s3as2portfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>ROOT & ROAM</span>
+    </div>
+
+    <div class="draggable" data-info-url="/portfolio/s3/portfolios3fp.html" data-site-url="/s3fp/s3fp.html" style="top: 30%; left: 80%; z-index: 9;">
+        <img src="/images/s3fpportfolio.png" alt="This is a Queen Card of Queen Bey.">
+        <span>SPAGHETTI CITY SUBWAY</span>
+    </div>
+
+    <div class="draggable" data-info-url="/portfolio/rr/portfoliorr.html" data-site-url="/s3as3/s3as3.html" style="top: 70%; left: 80%; z-index: 10;">
+        <div class="image-mockup"></div>
+        <span>READING RESPONSES</span>
+    </div>
+
+    <div class="dropzone" id="zone-enter">
+        VIEW PROJECT INFO
+    </div>
+    
+    <div class="dropzone" id="zone-portfolio">
+        ENTER PROJECT WEBSITE
+    </div>
+    
+</div>
+
+<script>
+    const draggables = document.querySelectorAll('.draggable');
+    const dropzones = document.querySelectorAll('.dropzone');
+    let highestZIndex = 20;
+
+    draggables.forEach(element => {
+        let isDragging = false;
+        let startX, startY, initialLeft, initialTop;
+
+        element.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            element.setPointerCapture(e.pointerId);
+            
+            // Bring the currently clicked element to the top
+            highestZIndex++;
+            element.style.zIndex = highestZIndex;
+
+            startX = e.clientX;
+            startY = e.clientY;
+            
+            const rect = element.getBoundingClientRect();
+            initialLeft = rect.left;
+            initialTop = rect.top;
+            
+            // Convert % positioning to px for smooth dragging
+            element.style.left = `${initialLeft}px`;
+            element.style.top = `${initialTop}px`;
+        });
+
+        element.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+
+            const currentX = e.clientX;
+            const currentY = e.clientY;
+            
+            const dx = currentX - startX;
+            const dy = currentY - startY;
+
+            element.style.left = `${initialLeft + dx}px`;
+            element.style.top = `${initialTop + dy}px`;
+
+            // Check for collisions with drop zones
+            checkDropZoneHover(element);
+        });
+
+        element.addEventListener('pointerup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            element.releasePointerCapture(e.pointerId);
+
+            // Execute drop logic if released over a zone
+            handleDrop(element);
+            
+            // Reset dropzone hover states
+            dropzones.forEach(zone => zone.classList.remove('hovered'));
+        });
+    });
+
+    function checkDropZoneHover(draggedElement) {
+        const dragRect = draggedElement.getBoundingClientRect();
+        
+        dropzones.forEach(zone => {
+            const zoneRect = zone.getBoundingClientRect();
+            
+            // Basic AABB Collision Detection
+            const isColliding = !(
+                dragRect.right < zoneRect.left || 
+                dragRect.left > zoneRect.right || 
+                dragRect.bottom < zoneRect.top || 
+                dragRect.top > zoneRect.bottom
+            );
+
+            if (isColliding) {
+                zone.classList.add('hovered');
+            } else {
+                zone.classList.remove('hovered');
+            }
+        });
+    }
+
+    function handleDrop(draggedElement) {
+        const dragRect = draggedElement.getBoundingClientRect();
+
+        dropzones.forEach(zone => {
+            const zoneRect = zone.getBoundingClientRect();
+            
+            const isColliding = !(
+                dragRect.right < zoneRect.left || 
+                dragRect.left > zoneRect.right || 
+                dragRect.bottom < zoneRect.top || 
+                dragRect.top > zoneRect.bottom
+            );
+
+            if (isColliding) {
+                if (zone.id === 'zone-enter') {
+                    // Logic for viewing PROJECT INFO
+                    const infoUrl = draggedElement.getAttribute('data-info-url');
+                    if (infoUrl) {
+                        window.location.href = infoUrl; 
+                    }
+                } else if (zone.id === 'zone-portfolio') {
+                    // Logic for entering PROJECT WEBSITE
+                    const siteUrl = draggedElement.getAttribute('data-site-url');
+                    if (siteUrl) {
+                        window.location.href = siteUrl;
+                    }
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
