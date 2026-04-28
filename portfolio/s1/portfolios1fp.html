@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S1FP: BJÖRK :: NUCLEUS</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; 
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.6;
+        user-select: text; 
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #E2E6FF;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3rem;
+        border: 1px solid #E2E6FF;
+        background-color: #040510;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .project-hero iframe {
+        border: none;
+        width: 100%;
+        height: 600px; 
+        background-color: #fafafa;
+    }
+
+    .external-links {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-top: 1px dashed #E2E6FF;
+        padding-top: 10px;
+    }
+
+    .external-links a {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .external-links a:hover {
+        text-decoration: underline;
+    }
+
+    .concept-block {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+    .component-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .component-box {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+        background-color: rgba(4, 5, 16, 0.3);
+    }
+
+    .component-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 1px dashed #E2E6FF;
+        padding-bottom: 5px;
+        color: #ff3333; 
+    }
+
+    .code-snippet {
+        background-color: #040510;
+        padding: 10px;
+        font-size: 0.75rem;
+        border-bottom: 1px solid #E2E6FF;
+        font-family: monospace;
+        color: #a8b2ff;
+        overflow-x: auto;
+        margin-bottom: 10px;
+    }
+
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <a href="/portfolio/portfolio.html" class="back-btn">← Back</a>
+    </div>
+
+    <h1>S1FP: BJÖRK :: NUCLEUS</h1>
+
+    <div class="project-hero">
+        <iframe src="/s1fp/index.html" title="Björk Fan Site"></iframe>
+        
+        <div class="external-links">
+            <a href="index.html" target="_blank">↗ View Live Site</a>
+        </div>
+    </div>
+
+    <div class="concept-block">
+        <h2>Concept & Visual Style</h2>
+        <p>This 5-page digital publication serves as an interactive tribute to the queen of avant-pop, Björk. The visual style is designed to reflect her unique intersection of nature, biology, and digital technology. A consistent thematic language is maintained across all pages using vibrant, shifting gradients, a distinct pixelated typeface (<code>Bitcount Grid Double</code>), and organic, floating "bean" shapes for the navigation toolset.</p>
+        <p>By heavily employing CSS animations (like <code>breathe</code> and <code>floatWiggle</code>), the entire site feels like a living organism, echoing Björk's own "fungal" and biophilic eras.</p>
+    </div>
+
+    <h2>Information Flow & Navigation</h2>
+    <div class="component-grid">
+        <div class="component-box">
+            <span class="component-title">Cadence & Punctuation</span>
+            <p>The site employs an intentional sequence to guide the viewer. It begins at the "Nucleus" index—a centralized, breathing point of entry. The cadence then shifts to a highly structured, vertical scroll in the "Discography" timeline. This rhythm is deliberately broken in the "Fashions" page, where absolute-positioned image cells scatter across a massive 400vh canvas, forcing a slow, exploratory scroll.</p>
+        </div>
+        
+        <div class="component-box">
+            <span class="component-title">Global Toolset</span>
+            <p>Navigation is handled through a consistent set of "floating beans." These buttons utilize fixed and absolute positioning (depending on the page's rhythm) to ensure the user can always jump between the Nucleus, Discography, Natura, Fashions, and the interactive Sound Lab without relying on the browser's back button.</p>
+        </div>
+    </div>
+
+    <h2>Technical Execution</h2>
+    <div class="component-grid">
+        <div class="component-box">
+            <div class="code-snippet">
+.sound-grid {<br>
+&nbsp;&nbsp;display: grid;<br>
+&nbsp;&nbsp;grid-template-columns: repeat(3, 1fr);<br>
+&nbsp;&nbsp;grid-template-rows: repeat(3, 1fr);<br>
+}
+            </div>
+            <span class="component-title">Grid & Flexbox Layouts</span>
+            <p>The publication heavily utilizes CSS layout models. While the timeline heavily relies on <code>display: flex</code> to align the expanding album pills and text groups, the "Sound Lab" fulfills the explicit grid requirement. It uses a 3x3 CSS Grid to perfectly space the interactive audio buttons, keeping them responsive and centered within the viewport.</p>
+        </div>
+
+        <div class="component-box">
+            <div class="code-snippet">
+ project-root/<br>
+├── index.html, eras.html...<br>
+├──  covers/ (album art)<br>
+├──  images/ (fashion cells)<br>
+└──  audio/ (.mp3 files)
+            </div>
+            <span class="component-title">Directory Schema</span>
+            <p>To keep the multi-page site organized and ensure no single page exceeds the 5MB limit, all assets are strictly categorized into a logical directory schema. Audio files triggered by the Sound Lab's JavaScript functions are housed separately from the heavy GIF/image assets used in the Discography and Fashion exhibits.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
