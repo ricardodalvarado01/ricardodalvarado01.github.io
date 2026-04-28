@@ -14,44 +14,54 @@
         <img src="art-of-the-web-portfolio-site-center-logo.gif" alt="This is my logo for this prortfolio website, it's supposed to evoke a sense of a low effort, fanwebsite, like a geo-cities style page.">
     </div>
     
-    <div class="draggable" data-url="/portfolio/S1AS2" style="top: 15%; left: 20%; z-index: 1;">
+    <div class="draggable" data-info-url="/info/css-still-life.html" data-site-url="/portfolio/S1AS2" style="top: 15%; left: 20%; z-index: 1;">
         <div class="image-mockup"></div>
         <span>CSS.Still Life</span>
     </div>
     
-    <div class="draggable" data-url="https://codepen.io/ricardodalvarado/pen/VYjrWbY" style="top: 40%; left: 10%; z-index: 2;">
+    <div class="draggable" data-info-url="/info/ascii-cards.html" data-site-url="https://codepen.io/ricardodalvarado/pen/VYjrWbY" style="top: 40%; left: 10%; z-index: 2;">
         <img src="s1/S1AS1_Queen.png" alt="This is a Queen Card of Queen Bey.">
         <span>ASCII CARDS</span>
     </div>
     
-    <div class="draggable" data-url="/portfolio/inujima-scaffold" style="top: 25%; left: 45%; z-index: 3;">
+    <div class="draggable" data-info-url="/info/bjork-fanpage.html" data-site-url="/portfolio/inujima-scaffold" style="top: 25%; left: 45%; z-index: 3;">
         <div class="image-mockup"></div>
         <span>Bjork FANPAGE</span>
     </div>
     
-    <div class="draggable" data-url="/portfolio/s2/portfolios2as1.html" style="top: 60%; left: 35%; z-index: 4;">
+    <div class="draggable" data-info-url="/info/art-web-ring.html" data-site-url="/portfolio/s2/portfolios2as1.html" style="top: 60%; left: 35%; z-index: 4;">
         <div class="image-mockup"></div>
-        <span>Art of the web/ring</span>
+        <span>Art of the Web/Ring</span>
     </div>
     
-    <div class="draggable" data-url="/portfolio/1441-chestnut" style="top: 10%; left: 70%; z-index: 5;">
+    <div class="draggable" data-info-url="/info/travel-archive.html" data-site-url="/portfolio/1441-chestnut" style="top: 10%; left: 70%; z-index: 5;">
         <div class="image-mockup"></div>
         <span>Travel Archive</span>
     </div>
     
-    <div class="draggable" data-url="/portfolio/project-6" style="top: 50%; left: 65%; z-index: 6;">
+    <div class="draggable" data-info-url="/portfolio/s2/portfolios2fp.html" data-site-url="https://editor.p5js.org/ricardodalvarado01/sketches/25J9dxFrn" style="top: 50%; left: 65%; z-index: 6;">
         <div class="image-mockup"></div>
         <span>WEIGHT OF THE PRESENT</span>
     </div>
 
-    <div class="draggable" data-url="/portfolio/project-6" style="top: 50%; left: 65%; z-index: 6;">
+    <div class="draggable" data-info-url="/portfolio/s3/portfolios3as1.html" data-site-url="s3as1\s3as1.html" style="top: 75%; left: 15%; z-index: 7;">
         <div class="image-mockup"></div>
         <span>SUBJECT TO CHANGE</span>
     </div>
 
-    <div class="draggable" data-url="/portfolio/project-6" style="top: 50%; left: 65%; z-index: 6;">
+    <div class="draggable" data-info-url="/info/root-roam.html" data-site-url="/portfolio/project-8" style="top: 80%; left: 55%; z-index: 8;">
         <div class="image-mockup"></div>
         <span>ROOT & ROAM</span>
+    </div>
+
+    <div class="draggable" data-info-url="/info/spaghetti-subway.html" data-site-url="/portfolio/project-9" style="top: 30%; left: 80%; z-index: 9;">
+        <div class="image-mockup"></div>
+        <span>SPAGHETTI CITY SUBWAY</span>
+    </div>
+
+    <div class="draggable" data-info-url="/info/reading-responses.html" data-site-url="/portfolio/reading-responses" style="top: 70%; left: 80%; z-index: 10;">
+        <div class="image-mockup"></div>
+        <span>READING RESPONSES</span>
     </div>
 
     <div class="dropzone" id="zone-enter">
@@ -67,7 +77,7 @@
 <script>
     const draggables = document.querySelectorAll('.draggable');
     const dropzones = document.querySelectorAll('.dropzone');
-    let highestZIndex = 10;
+    let highestZIndex = 20;
 
     draggables.forEach(element => {
         let isDragging = false;
@@ -159,13 +169,17 @@
 
             if (isColliding) {
                 if (zone.id === 'zone-enter') {
-                    // Logic for entering the main site/info page
-                    // Update '/main' to whatever your actual info page HTML file is
-                    window.location.href = '/main'; 
+                    // Logic for viewing PROJECT INFO
+                    const infoUrl = draggedElement.getAttribute('data-info-url');
+                    if (infoUrl) {
+                        window.location.href = infoUrl; 
+                    }
                 } else if (zone.id === 'zone-portfolio') {
-                    // Logic for viewing the specific project
-                    const targetUrl = draggedElement.getAttribute('data-url');
-                    window.location.href = targetUrl;
+                    // Logic for entering PROJECT WEBSITE
+                    const siteUrl = draggedElement.getAttribute('data-site-url');
+                    if (siteUrl) {
+                        window.location.href = siteUrl;
+                    }
                 }
             }
         });
