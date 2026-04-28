@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S3FP: SPAGEHTTI CITY SUBWAY</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; 
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.6;
+        user-select: text; 
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #E2E6FF;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+
+    .p5-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3rem;
+        border: 1px solid #E2E6FF;
+        background-color: #040510;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .p5-container iframe {
+        border: none;
+        width: 100%;
+        height: 600px; 
+        background-color: transparent;
+    }
+
+    .p5-links {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-top: 1px dashed #E2E6FF;
+        padding-top: 10px;
+    }
+
+    .p5-links a {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .p5-links a:hover {
+        text-decoration: underline;
+    }
+
+    .concept-block {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+    .component-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .component-box {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+    }
+
+    .component-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 1px dashed #E2E6FF;
+        padding-bottom: 5px;
+        color: #ff3333; 
+    }
+
+
+    .sketches-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 1rem;
+    }
+
+    .sketch-card {
+        border: 1px solid #E2E6FF;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sketch-text {
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+
+    .sketch-label {
+        font-weight: 700;
+        display: block;
+        margin-bottom: 5px;
+        color: #ff3333;
+    }
+
+    .code-snippet {
+        background-color: #040510;
+        padding: 10px;
+        font-size: 0.75rem;
+        border-bottom: 1px solid #E2E6FF;
+        font-family: monospace;
+        color: #a8b2ff;
+        overflow-x: auto;
+    }
+
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <a href="/portfolio/portfolio.html" class="back-btn">← Back</a>
+    </div>
+
+    <h1>S3FP: Spaghetti City Subway Generator</h1>
+
+    <div class="p5-container">
+        <iframe src="https://editor.p5js.org/ricardodalvarado01/full/GUVgAbEdJ" title="p5.js sketch: Spaghetti City Subway Generator"></iframe>
+        
+        <div class="p5-links">
+            <a href="https://editor.p5js.org/ricardodalvarado01/sketches/GUVgAbEdJ" target="_blank">↗ View Full Screen</a>
+            <a href="https://editor.p5js.org/ricardodalvarado01/sketches/GUVgAbEdJ" target="_blank">↗ View Source Code</a>
+        </div>
+    </div>
+
+    <div class="concept-block">
+        <h2>Concept</h2>
+        <p>My project is an interactive, generative transit map simulator. The core concept explores how urban infrastructure organically grows around geographical constraints and population centers. </p>
+        <p>Upon loading, the sketch generates a natural barrier—a meandering river—and scatters "demand dots" representing neighborhoods or points of interest. As the user clicks, they act as a city planner, building a subway network that must navigate around the river, serve the population dots, and intelligently route parallel tracks and transfer hubs.</p>
+    </div>
+
+    <div class="component-grid">
+        <div class="component-box">
+            <span class="component-title">Procedural Geography</span>
+            <p>On startup, the system generates a random sine-wave river. It then populates the canvas with demand dots using a while-loop and a custom collision function (<code>isPointOnRiver</code>) to strictly ensure no populations spawn in the water.</p>
+        </div>
+        <div class="component-box">
+            <span class="component-title">User-Driven Infrastructure</span>
+            <p>When the user clicks, the system uses proximity detection (snapping) to connect the new click to existing stations or demand dots. If they click a demand dot, it is removed from the map as it has been successfully "developed."</p>
+        </div>
+    </div>
+
+    <h2>Process & Code Breakdown</h2>
+    
+    <div class="sketches-grid">
+        <div class="sketch-card">
+            <div class="code-snippet">
+// setup() - River Generation<br>
+let y = startY + sin(x * waveFrequency) * waveAmplitude;
+            </div>
+            <div class="sketch-text">
+                <span class="sketch-label">Global Variables & Initialization</span>
+                We divide the screen into 30 horizontal segments. Using a sine wave multiplied by an amplitude makes the line curve up and down organically, adding slight randomness so it doesn't look purely mathematical.
+            </div>
+        </div>
+
+        <div class="sketch-card">
+            <div class="code-snippet">
+// draw() - Offset Math<br>
+let nx = -directDy / len;<br>
+let ny = directDx / len;
+            </div>
+            <div class="sketch-text">
+                <span class="sketch-label">Parallel Bundling Logic</span>
+                Instead of drawing straight lines from A to B, the loop calculates "parallel bundling." We tally up which lines share the same segment and multiply their normal vectors by a spacing variable so parallel tracks shift side-by-side.
+            </div>
+        </div>
+
+        <div class="sketch-card">
+            <div class="code-snippet">
+// draw() - Rendering Hubs<br>
+if (uniqueLines > 2) { ellipse(x, y, baseSize * 1.25); }
+            </div>
+            <div class="sketch-text">
+                <span class="sketch-label">Tracks & Transfer Stations</span>
+                Based on a station's random <code>pathType</code>, tracks draw as L-shapes or sweeping bezier curves. We use a dictionary (<code>coordMap</code>) to count unique lines at a coordinate: 1 line is a black dot, 2+ lines draw a large white transfer circle.
+            </div>
+        </div>
+
+        <div class="sketch-card">
+            <div class="code-snippet">
+// Helper Math<br>
+let info = getDistanceToSegment(pt, v, w);
+            </div>
+            <div class="sketch-text">
+                <span class="sketch-label">Collision & Branching</span>
+                Standard linear algebra calculates the shortest distance from the user's mouse to the river. When adding lines, the code checks for existing stations along the path, allowing the subway lines to naturally branch and merge!
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

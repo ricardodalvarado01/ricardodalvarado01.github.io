@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S3A2: Root & Roam</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; 
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.6;
+        user-select: text; 
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #E2E6FF;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3rem;
+        border: 1px solid #E2E6FF;
+        background-color: #040510;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .project-hero iframe {
+        border: none;
+        width: 100%;
+        height: 600px; 
+        background-color: #fafafa;
+    }
+
+    .external-links {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-top: 1px dashed #E2E6FF;
+        padding-top: 10px;
+    }
+
+    .external-links a {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .external-links a:hover {
+        text-decoration: underline;
+    }
+
+    .concept-block {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+    .recipe-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .recipe-box {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+        background-color: rgba(4, 5, 16, 0.3);
+    }
+
+    .recipe-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 1px dashed #E2E6FF;
+        padding-bottom: 5px;
+        color: #ff3333; 
+    }
+
+    .logic-label {
+        font-size: 0.8rem;
+        color: #a8b2ff;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .reflection-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 1rem;
+    }
+
+    .reflection-card {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+    }
+
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+
+    ul.science-list {
+        margin-left: 20px;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    ul.science-list li {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <a href="/portfolio/portfolio.html" class="back-btn">← Back</a>
+    </div>
+
+    <h1>S3A2: Root & Roam</h1>
+
+    <div class="project-hero">
+        <iframe src="https://ricardodalvarado01.github.io/s3as2/s3as2.html" title="Root and Roam Promo Site"></iframe>
+        
+        <div class="external-links">
+            <a href="https://ricardodalvarado01.github.io/s3as2/s3as2.html" target="_blank">↗ View Promotional Site</a>
+        </div>
+    </div>
+
+    <div class="concept-block">
+        <h2>The Concept & The Pitch</h2>
+        <p>You’re stressed, your head is spinning, and you feel stuck staring at a wall while the material refuses to stick. Root & Roam is an automated intervention designed to combat screen burnout and academic fatigue.</p>
+        <p>Building healthy study habits is difficult when deadlines loom. Root & Roam automates the decision-making process by forcing a visual and physical reset. By stepping away and interacting with natural environments, users trigger "soft fascination," which actively recharges the cognitive battery and shifts the brain into the diffuse mode required for complex concepts to finally click.</p>
+    </div>
+
+    <h2>The Recipe (IFTTT Logic)</h2>
+    <div class="recipe-grid">
+        <div class="recipe-box">
+            <span class="recipe-title">The Trigger</span>
+            <span class="logic-label">IF THIS (Time / Productivity API)</span>
+            <p>The trigger is linked to a time-tracking or focus API (such as iOS Screen Time, RescueTime, or a standard timer applet). The applet silently monitors for continuous, unbroken study sessions, specifically activating when 90 minutes pass without a break.</p>
+        </div>
+        <div class="recipe-box">
+            <span class="recipe-title">The Action</span>
+            <span class="logic-label">THEN THAT (Notification / Smart Device API)</span>
+            <p>The system bypasses standard, easily ignored alarms and pushes an actionable intervention. This can link to SMS, push notifications, or smart home devices (like turning lights a specific color) to automatically command the user to step outside, stretch, and reconnect.</p>
+        </div>
+    </div>
+
+    <h2>Reflections on API Linking</h2>
+    <div class="reflection-grid">
+        <div class="reflection-card">
+            <span class="recipe-title">What is Gained</span>
+            <p>Linking a background timer to an external notification system removes the cognitive load of self-regulation. Students no longer have to actively remember to take breaks. The integration forces a biological benefit—specifically memory consolidation, as a 15-minute prompted walk physically pumps oxygenated blood to the hippocampus to lock in short-term study material.</p>
+        </div>
+        
+        <div class="reflection-card">
+            <span class="recipe-title">What is Lost</span>
+            <p>By delegating our workflow to automated systems, we lose granular control over our focus cycles. A rigid 90-minute API trigger lacks human intuition; it might interrupt a student right as they enter a deep, highly productive "flow state," breaking their momentum simply because the code dictated it was time for a walk.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
