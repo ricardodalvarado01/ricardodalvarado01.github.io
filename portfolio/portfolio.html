@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Layout</title>
-<link rel="stylesheet" href="portfoliostyle.css">.
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Layout</title>
+    <link rel="stylesheet" href="portfoliostyle.css">
+</head>
+<body>
 
 <div class="canvas" id="canvas">
     
-<div class="center-logo">
-<img src="art-of-the-web-portfolio-site-center-logo.gif" alt="This is my logo for this prortfolio website, it's supposed to evoke a sense of a low effort, fanwebsite, like a geo-cities style page.">
+    <div class="center-logo">
+        <img src="art-of-the-web-portfolio-site-center-logo.gif" alt="This is my logo for this prortfolio website, it's supposed to evoke a sense of a low effort, fanwebsite, like a geo-cities style page.">
     </div>
-<div class="draggable" data-url="/portfolio/S1AS2" style="top: 15%; left: 20%; z-index: 1;">
+    
+    <div class="draggable" data-url="/portfolio/S1AS2" style="top: 15%; left: 20%; z-index: 1;">
         <div class="image-mockup"></div>
         <span>CSS.Still Life</span>
     </div>
@@ -26,7 +29,7 @@
         <span>Bjork FANPAGE</span>
     </div>
     
-    <div class="draggable" data-url="portfolio/s2/portfolios2as1.html" style="top: 60%; left: 35%; z-index: 4;">
+    <div class="draggable" data-url="/portfolio/s2/portfolios2as1.html" style="top: 60%; left: 35%; z-index: 4;">
         <div class="image-mockup"></div>
         <span>Art of the web/ring</span>
     </div>
@@ -54,9 +57,11 @@
     <div class="dropzone" id="zone-enter">
         VIEW PROJECT INFO
     </div>
+    
     <div class="dropzone" id="zone-portfolio">
         ENTER PROJECT WEBSITE
     </div>
+    
 </div>
 
 <script>
@@ -154,16 +159,13 @@
 
             if (isColliding) {
                 if (zone.id === 'zone-enter') {
-                    // Logic for entering the main site
-                    console.log("Entering main site...");
-                    // window.location.href = '/main'; 
-                    alert("Redirecting to: Main Website / About Page");
+                    // Logic for entering the main site/info page
+                    // Update '/main' to whatever your actual info page HTML file is
+                    window.location.href = '/main'; 
                 } else if (zone.id === 'zone-portfolio') {
                     // Logic for viewing the specific project
                     const targetUrl = draggedElement.getAttribute('data-url');
-                    console.log("Navigating to portfolio: " + targetUrl);
-                    // window.location.href = targetUrl;
-                    alert("Redirecting to: " + targetUrl);
+                    window.location.href = targetUrl;
                 }
             }
         });
