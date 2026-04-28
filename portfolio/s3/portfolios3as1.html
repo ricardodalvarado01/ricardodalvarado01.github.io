@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S3A1: Subject to Change</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; 
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.6;
+        user-select: text; 
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #E2E6FF;
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3rem;
+        border: 1px solid #E2E6FF;
+        background-color: #040510;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .project-hero iframe {
+        border: none;
+        width: 100%;
+        height: 600px; 
+        background-color: #1a1a1a; /* Matches your script's body background */
+    }
+
+    .external-links {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-top: 1px dashed #E2E6FF;
+        padding-top: 10px;
+    }
+
+    .external-links a {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .external-links a:hover {
+        text-decoration: underline;
+    }
+
+    .concept-block {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 3rem;
+    }
+
+    .component-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .component-box {
+        border: 1px solid #E2E6FF;
+        padding: 20px;
+        background-color: rgba(4, 5, 16, 0.3);
+    }
+
+    .component-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 1px dashed #E2E6FF;
+        padding-bottom: 5px;
+        color: #ff3333; 
+    }
+
+    .code-snippet {
+        background-color: #040510;
+        padding: 10px;
+        font-size: 0.75rem;
+        border-bottom: 1px solid #E2E6FF;
+        font-family: monospace;
+        color: #a8b2ff;
+        overflow-x: auto;
+        margin-bottom: 10px;
+    }
+
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-bar">
+        <a href="/portfolio/portfolio.html" class="back-btn">← Back</a>
+    </div>
+
+    <h1>S3A1: Subject to Change</h1>
+
+    <div class="project-hero">
+        <iframe src="/s3as1/s3as1.html" title="Interactive Script Environment"></iframe>
+        
+        <div class="external-links">
+            <a href="/s3as1/s3as1.html" target="_blank">↗ Open Website</a>
+        </div>
+    </div>
+
+    <div class="concept-block">
+        <h2>Concept & Inspiration</h2>
+        <p>This project is a dynamic, interactive script engine inspired by the unpredictability of improvisational theater and the fill-in-the-blank mechanics of Mad Libs. The narrative acts as a meta-commentary on digital existence, following a "SUBJECT" who slowly realizes they are trapped inside a rendered HTML environment overseen by an omnipresent "SYSTEM VOICE."</p>
+        <p>To fulfill the requirement of creatively interpreting markup languages, the dialogue heavily integrates pseudo-code, JavaScript functions (`console.log`, `throw new Error`), and CSS styling properties (`opacity: 0; transition: 5s ease-out;`) as literal stage directions and spoken lines.</p>
+    </div>
+
+    <h2>Interactive Mechanics & Chance</h2>
+    <div class="component-grid">
+        <div class="component-box">
+            <span class="component-title">The Improv Engine</span>
+            <p>The core mechanic revolves around an element of chance. When the user interacts with highlighted `var-slot` elements, a JavaScript function randomly selects parameters from predefined arrays containing Roles, Locations, Verbs, and Adjectives. This ensures that every reading of the script is unique, forcing actors to adapt to sudden, absurd context shifts on the fly.</p>
+        </div>
+        
+        <div class="component-box">
+            <div class="code-snippet">
+function scrambleNext() {<br>
+&nbsp;&nbsp;ACTIVE_CHOICES = { ROLE: "", LOC: "", ADJ: "", VERB: "" };<br>
+&nbsp;&nbsp;/* Injects a Glitch Notice */<br>
+}
+            </div>
+            <span class="component-title">Controlled Chaos</span>
+            <p>To mimic the spontaneity of a live director shouting out new prompts to actors, a "SCRAMBLE DATA" button resets the active variables mid-scene. This visually injects a glitch notice into the DOM, breaking the fourth wall and demanding the performers immediately pivot their characters to match the newly generated data.</p>
+        </div>
+    </div>
+
+    <h2>Performance Documentation</h2>
+    <div class="component-grid" style="grid-template-columns: 1fr;">
+        <div class="component-box">
+            <span class="component-title">Documenting the Script</span>
+            <p>Because the script relies on a random number generator and dynamic DOM manipulation (revealing lines one by one), the piece is inherently transient. To document the performance, I integrated `html2pdf.js`. By clicking "PRINT/SAVE PDF," the user captures the exact configuration of the script at that specific moment. This transforms a fluid, chaotic web experience into a static, printable artifact, preserving a permanent record of the unique "Mad Lib" variant generated during that specific session.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

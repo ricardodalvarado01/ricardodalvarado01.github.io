@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Responses</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0014f4; 
+        font-family: 'Space Mono', monospace;
+        color: #E2E6FF; 
+        line-height: 1.5;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+
+    header {
+        margin-bottom: 3rem;
+        border-bottom: 1px solid #E2E6FF;
+        padding-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        margin: 0;
+    }
+
+    /* The Editorial Grid */
+    .response-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid #E2E6FF;
+        border-left: 1px solid #E2E6FF;
+    }
+
+    .response-card {
+        border-bottom: 1px solid #E2E6FF;
+        border-right: 1px solid #E2E6FF;
+        height: 600px; 
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+    }
+
+    .response-card:hover {
+        background-color: rgba(226, 230, 255, 0.03);
+    }
+
+    /* Top Metadata */
+    .card-header {
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        font-weight: 700;
+    }
+
+    .week-num {
+        color: #ff3333; 
+    }
+
+    /* The Abstract Graphic Container */
+    .image-wrapper {
+        width: 100%;
+        height: 180px;
+        margin: 1.5rem 0;
+        border: 1px solid #E2E6FF;
+        background-color: #040510;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        filter: grayscale(100%) contrast(120%); /* Adds a stylized filter, remove if you want full color */
+        transition: opacity 0.3s ease, transform 0.5s ease;
+    }
+
+    .response-card:hover .image-wrapper img {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    .placeholder-text {
+        font-size: 0.75rem;
+        color: #a8b2ff;
+        text-transform: uppercase;
+    }
+
+    /* Bottom Text Area */
+    .text-content {
+        flex-grow: 1;
+        overflow-y: auto;
+        font-size: 0.85rem;
+        padding-right: 15px;
+        border-top: 1px dashed rgba(226, 230, 255, 0.3);
+        padding-top: 15px;
+    }
+
+    .text-content p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Custom Ultra-Thin Scrollbar */
+    .text-content::-webkit-scrollbar {
+        width: 4px;
+    }
+    .text-content::-webkit-scrollbar-track {
+        background: transparent; 
+    }
+    .text-content::-webkit-scrollbar-thumb {
+        background: #E2E6FF; 
+        border-radius: 10px;
+    }
+    .text-content::-webkit-scrollbar-thumb:hover {
+        background: #ff3333; 
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .response-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    .nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="container">
+    
+    <div class="nav-bar">
+        <a href="/portfolio/portfolio.html" class="back-btn">← Back</a>
+    </div>
+
+    <header>
+        <h1>Reading Responses</h1>
+    </header>
+
+    <div class="response-grid">
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">10 / WEEK 15</span>
+                <span>The Algorithmic Gaze</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+15+]" alt="Abstract Graphic Week 15">
+            </div>
+
+            <div class="text-content">
+                <p>In "Art on the Internet," Boris Groys points out that the web is fundamentally a "machine of surveillance" governed by an "algorithmic gaze". Every click, view, and upload is tracked and archived. He calls this the "monetization of hermeneutics", a system that forces us to reveal our true selves and desires, not for personal liberation, but so corporations can extract our identities for targeted ads.</p>
+                <p>The traditional artistic process always relied on secrecy and isolation until a work was ready to be shared. Now that the platform insists on defining every pixel and keystroke, it creates a massive tension for us in Art of the Web: How do we make authentic art when the internet refuses to let us have any secrets?</p>
+                <p>I’ve been thinking a lot about the hyper-niche, esoteric art communities I keep seeing on platforms like Instagram. The work they post is intentionally bizarre, heavily layered, and almost like watching an inside-joke or reference montage. There is no explanation for each post, often no caption. As a viewer when first shown this it feels very striking because the meaning of the post or process is not revealed so it’s more of a process of letting the work speak for itself regardless if you understand every reference or element.</p>
+                <p>After reading Groys, this trend makes complete sense as a survival tactic. By deliberately mystifying their art, these creators are making it impossible for traditional algorithms to understand or categorize them, as a way to claim a space that the machine can't easily monetize.</p>
+                <p>Can we truly escape the algorithm by being esoteric and mystifying our art, or will the machine eventually just create a new, monetizable "esoteric" category to put us in? How does this apply to building our own websites? Can we intentionally design web spaces that confuse data scrapers and algorithms while still being meaningful and engaging for human visitors?</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">09 / WEEK 14</span>
+                <span>The Radical Monopoly</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+14+]" alt="Abstract Graphic Week 14">
+            </div>
+
+            <div class="text-content">
+                <p>In this week's reading, Henry Desroches makes a compelling argument using Ivan Illich’s concept of a "radical monopoly". He explains how tech platforms have become so dominant that they force our society to adapt to them, rather than the other way around. Instead of connecting organically, we get trapped in social media "pens" where we are forced to churn out content or risk vanishing completely.</p>
+                <p>His proposed solution is a return to "convivial tools", tools designed specifically to give us back our autonomy and creativity. On the internet, he argues that the ultimate convivial tool is the hand-coded personal website. To solve the obvious problem of isolation, Desroches heavily pushes POSSE: Publish On your Own Site, Syndicate Elsewhere. The vision is that you own your content, syndicate it out to decentralized networks using tools like brid.gy, and use Webmentions to funnel the conversation back home.</p>
+                <p>But honestly, reading this, I’m left with a massive logistical question: how does POSSE actually build a lasting community and not just a niche trend? Desroches paints a really optimistic picture, but genuine community requires a critical mass of active people. If the IndieWeb relies exclusively on a small subset of tech-savvy creators who are willing to navigate syndication tools and microformats, aren't we just building incredibly autonomous echo chambers? Without the built-in audience and frictionless discoverability of major platforms, the decentralized web risks feeling like a completely empty room.</p>
+                <p>Furthermore, I have to question the longevity of this. Desroches encourages us to reduce our friction to publishing and to get comfortable with being "joyfully bad" at making things. While that’s a fun, liberating mindset for an Art of the Web project, is it sustainable for everyday use forever? Maintaining a personal site and manually federating posts takes persistent effort. If the vast majority of people inevitably default to the easiest, most frictionless option (like an app), I wonder if the hand-built personal website is just a fleeting, trendy aesthetic reaction to Web 2.0, rather than a permanent cultural shift.</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">08 / WEEK 13</span>
+                <span>The Smooth Flow</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+13+]" alt="Abstract Graphic Week 13">
+            </div>
+
+            <div class="text-content">
+                <p>Paul Soulellis argues that we are shifting from a pre-network publishing paradigm built on the physical "post" to a "smooth flow" paradigm of continuous feeds.</p>
+                <p>Soulellis points out that the modern feed is a mix of human and non-human voices, where algorithms, bots, and neural networks act as "authors". He gives examples ranging from Twitter bots with "person's faces" to neural networks training themselves to drive in video games. How does it change your experience of art or information when you know the "voice" is non-human or algorithmic?</p>
+                <p>When I know an algorithm generated an article, a piece of art, or a simulated video (like the unsettling predictive videos Soulellis mentions), my experience becomes inherently skeptical. The "trust issues" he raises are a natural reflex. But I can also understand that a non-human voice doesn't automatically empty a work of its value. Take the example of the neural network learning to drive in the GTA mod while humans comment in the chat. In that context, the "art" isn't just the visual output on the screen but the atmosphere of the machine colliding with human feedback live.</p>
+                <p>Engaging with these bots can actually force us to "question the structures that make such a chat possible." Knowing the voice is algorithmic strips away the illusion of a one-to-one human connection, but it replaces it with a new dilema: it trains us to be active interrogators of the media we inhabit, rather than passive consumers. If our new role is to be 'active interrogators' of the feed, what does that actually look like in our day-to-day consumption? How do we build trust or find solid ground in a system where the authorship is constantly shifting?</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">07 / WEEK 12</span>
+                <span>Aesthetic Witnessing</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+12+]" alt="Abstract Graphic Week 12">
+            </div>
+
+            <div class="text-content">
+                <p>I found Dot Tuer’s analysis of Vera Frenkel’s String Games (1974) really interesting because it flips the script on how we usually view "new media". We often think of tech as a way to bring people together, but Frenkel uses it to highlight absence and what gets lost in transmission. I loved the detail about the "X" placed in the studio to map real space. To the viewers on the other side, it looked like the performers were turning away from the camera.</p>
+                <p>The "imaginary string" passed between participants in 1974 eventually became a metaphor for much deeper historical losses. By 1995, Frenkel’s Body Missing website used this same logic to archive artworks and stories lost during the Holocaust. This transition shows that the way we navigate "links" and "threads" can also be a way of "aesthetic witnessing" for history that can't be fully recovered.</p>
+                <p>Tuer argues that Frenkel built "containers for the future before the past had arrived to fill them," meaning she predicted how we would eventually use the web to store our collective memories and traumas. In short, it matters because it warns us that while the digital world promises an "eternal present," it is actually haunted by what has disappeared.</p>
+                <p>Do you think modern platforms (like Zoom or social media) have actually closed that "gap" between people, or are we still just "phantom-like ciphers" reaching out across a screen?</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">06 / WEEK 10</span>
+                <span>The Second Death of Design</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+10+]" alt="Abstract Graphic Week 10">
+            </div>
+
+            <div class="text-content">
+                <p>Silvio Lorusso quotes Michael Rock’s assertion that graphic design "died in 2008" because it "completely infiltrated everything". With the rise of digital tools, the act of design shifted from an expert craft to something anyone can do. But reading this in the context of our current web landscape, it feels like Lorusso was only documenting the first death of design. We are currently witnessing the second.</p>
+                <p>Lorusso points out that the desktop publishing revolution "demystified our code" for the masses. But new tools like Claude do the opposite, hiding the code behind a text box, potentially killing the collaborative nature of web building.</p>
+                <p>Secondly, what will this do to the aesthetic of the web? While AI will undoubtedly make it easier to create "perfect," highly sanitized, frictionless websites, it might actually spark a massive counter-movement. We might be on the verge of a new "cult of the ugly." To prove that a website was actually made by a human and not generated by Claude, we might see a massive revival of the early 2000s Web aesthetic. "Low effort," imperfect, and chaotic design.</p>
+                <p>Just as Lorusso notes that professionals "steal from vernacular work" to capture something "honest and most direct", the messy, unpolished vernacular of the early internet might become our only proof of human authenticity.</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">05 / WEEK 8</span>
+                <span>Invisible Bias & Naming</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+8+]" alt="Abstract Graphic Week 8">
+            </div>
+
+            <div class="text-content">
+                <p>Nasser's essay really hits hard on the idea that technology isn't just some "neutral" thing or a tool that works the same everywhere. It makes you seriously question the computer, especially when you look at projects like One Laptop Per Child (OLPC), which tries to "bridge the digital divide" just by handing out hardware. Sure, these efforts might let people change the interface locally, but Nasser points out that the core stuff, the actual code (think Python) and the UNIX terminal, is still fundamentally locked into the English language. Basically, he argues that giving out this tech isn't just giving kids a new toy; it's subtly pushing them into adopting a specific language and culture if they ever want to truly get under the hood and understand how their own machine works.</p>
+                <p>The most thought-provoking part for me was his discussion on the "invisible bias" of naming things. In computer science, naming is often treated as a trivial task or a "hard problem" of organization. But Nasser frames it as a colonial act. Because modern programming relies on decades of existing libraries and protocols, every new programmer is forced to use the names chosen by engineers at Bell Labs or Xerox PARC in the 60s and 70s. It’s a form of "path dependency" where the English language is now baked into the very foundation of global communication.</p>
+                <p>If, as Nasser says, we're stuck with this "non-English programming experience," does that actually limit how diverse tech can get? Yeah, we can change the icons and the language on the screen. But if the system's main engine, its Qalb or "heart", is still totally reliant on English, can we truly say technology is "decolonized"? Or maybe this idea of a completely "culturally neutral" computer is just a pipe dream we can't let go of. Maybe we cling to that myth because it lets us avoid the hard work of building a real digital common ground, a true lingua franca.</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">04 / WEEK 7</span>
+                <span>Subjective Description</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+7+]" alt="Abstract Graphic Week 7">
+            </div>
+
+            <div class="text-content">
+                <p>Coklyat and Finnegan challenge the idea of "objectivity" when it comes to description, saying it's actually really subjective. They point out that this supposed objectivity often just locks in the views of the people already in charge (think white, cisgender, middle- and upper-class men) while pushing everyone else to the side. Getting this is key to building digital spaces that truly include everyone, and it means we need to recognize that who is doing the describing and how they say it really matters. The advice here is to use "word economy", language that's punchy but to the point, to keep things super accessible for blind and low-vision users.</p>
+                <p>The whole Artists for Alt-Text idea really grabbed me. It's all about getting artists to write their own image descriptions so the alt-text feels like it's part of the art, not just something tacked on later. The authors get that artists are often stretched thin, but they make a strong point: visual artists really need to think about the accessibility issues their work can create for some people.</p>
+                <p>I'm really interested in how this "human" touch actually affects the user experience on the web. Does using more personal phrases like "X stands out to me" make a digital space feel more welcoming, or is it better to stick with a standard, technical approach for the stuff we build? The workbook suggests that "objectivity" is often a myth that just upholds existing power structures, so maybe leaning into our own subjective perspective is actually a more honest way to design. I'm curious if you think this poetic, transparent style of authorship makes the internet feel more inclusive, or if it just risks over-complicating things for people using screen readers.</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">03 / WEEK 5</span>
+                <span>The Postinternet Condition</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+5+]" alt="Abstract Graphic Week 5">
+            </div>
+
+            <div class="text-content">
+                <p>Marisa Olson's idea of "POSTINTERNET: art after the internet" really changes how artists deal with digital culture. The term she came up with doesn't mean the internet is over as a time period. Instead, it describes this widespread "condition" or "quality" of being critically aware of it.</p>
+                <p>She makes a key distinction between "net art" and "postinternet art." While net art typically stayed stuck on the computer screen, postinternet art recognizes that the internet's impact is everywhere: in physical reality, objects, and how we interact socially. Olson argues we've moved past seeing the web as a "novelty" into a phase where network conditions are just a normal, accepted background part of modern life.</p>
+                <p>"Everything is always-already postinternet."</p>
+                <p>This makes us think about how even traditional, offline art, like a painting or sculpture, might still "perform" the internet's logic. Olson believes postinternet art blurs the line between online and offline, pointing to Guthrie Lonergan's concept of objects that aren't objects.</p>
+                <p>This makes me wonder: Can physical, offline objects really critique the internet, or do they inevitably lose some of their critical edge when they're taken out of the space where the internet fundamentally operates?</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">02 / WEEK 4</span>
+                <span>Digital Placemaking</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+4+]" alt="Abstract Graphic Week 4">
+            </div>
+
+            <div class="text-content">
+                <p>In Still There, Olia Lialina notes that by 2009, "having a Geocities page basically became synonymous with dilettantism," marking the moment the web transitioned from a space of construction (home pages) to a space of curation (social profiles). In our current era of polished, algorithmic feeds, is there any room left for the "amateur" who builds for the sheer joy of it? Or has the professionalization of the web (where everyone is a "brand") effectively outlawed the messy, human creativity that defined the Geocities era?</p>
+                <p>I vaguely remember my first encounters with the internet (the kind Lialina describes) around 2008 or 2009. Just like how Lialina describes Geocities as having complex social structures, I remember a palpable sense of digital placemaking, a digital culture that felt less like a global network and more like a collection of distinct, navigable page destinations. The text highlights how Geocities was spatially organized: "'SoHo' was for artists, 'Heartland' for family and pets, 'The Tropics' for vacations." Users had to self-identify and "move in" to a specific community with its own local "lingo" and aesthetic rules.</p>
+                <p>The effort of seeking out your own niche interests was rewarded with dedicated forums, idiosyncratic message boards, and specialized fan sites. This was where culture was not merely consumed but actively forged, developed, and celebrated by resident communities. The fun derived from the internet back then was rooted in this authentic shared human experience. You felt like you were actually visiting various places, each with its own customs, aesthetics, and sense of belonging.</p>
+                <p>In a neighborhood, you might stumble upon something challenging or meet a neighbor you didn't expect to; this friction is the crucible of new ideas and resilient communities. In the feed, however, everything is filtered, polished, and presented as a frictionless path of least resistance, leading only to greater isolation within a perfectly personalized, self-referential echo chamber. We no longer inhabit the comfortable, messy confines of digital "neighborhoods" with fixed addresses and histories. Instead, our online existence has been condensed into infinite, personalized content loops.</p>
+                <p>Our digital gatekeepers are now sophisticated AI algorithms whose primary goal is optimization, maximizing short-form engagement, attention, and ad revenue, not fostering genuine community. Lialina notes that Geocities became synonymous with "dilettantism and bad taste" as users migrated to standardized social network profiles. However, if we look at the root of dilettantism, meaning "to delight" in an art, have we lost something vital by trading "bad taste" for "good UX"?</p>
+                <p>Can a true community exist in a feed that is perfectly curated for the individual, or do we need the "messy" friction of a shared space actually to feel human?</p>
+            </div>
+        </div>
+
+        <div class="response-card">
+            <div class="card-header">
+                <span class="week-num">01 / WEEK 3</span>
+                <span>Demystifying the Cloud</span>
+            </div>
+            
+            <div class="image-wrapper">
+                <img src="https://via.placeholder.com/600x300/040510/E2E6FF?text=[+Abstract+Graphic+3+]" alt="Abstract Graphic Week 3">
+            </div>
+
+            <div class="text-content">
+                <p>The reading starts by deconstructing the "cloud", this idea that the internet is some untouchable, mysterious blob. It’s not. It’s just computers talking to other computers. This demystification is huge because it reminds us that the web was built to be a collective, peer-to-peer network. That was its original essence, and it’s exactly what corporations have spent the last decade trying to capture and box up.</p>
+                <p>I’ve been seeing this alarming trend everywhere lately: we don’t own anything anymore. Whether it’s movies, games, or software, we’ve moved into a model of "leasing" our digital lives. There's even talk of companies renting out computing power instead of selling consoles. It feels like a move toward digital techno-feudalism, where we’re just tenants on a platform's land, being squeezed for profit and targeted by algorithms that make every space feel planned and sterile.</p>
+                <p>This is why the author’s point about the personal website is so relevant. Arguably, it’s more important now than social media. On Instagram or X, you’re in a "walled factory." And also, chances are, you're probably going to encounter more bots than real people. On your own domain, you actually own the structure.</p>
+                <p>The reading lists the basics, how to buy a domain, find a text editor, write HTML, and it frames these as tools for survival. Learning to "fiddle around in templates" is about reclaiming a space that isn't designed to squeeze money out of you. If we don’t own our movies, our games, or our own digital "turf," then what do we actually have? Learning to host your own files or edit your own HTML is a small but maybe it's the first step we can try to take to create a home on a piece of the web that can’t be deleted or "un-licensed".</p>
+                <p>I love the idea that a website is "inherently unfinished" and living. Corporate sites have to be perfect to sell you something. A personal site can be weird, imperfect, and even have a few bugs. That’s the beauty of it. It’s a temporal space that belongs to you, not a landlord. If the web is what we make it, we should probably stop making it a mall and start making it a network of individual, messy nodes again.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
