@@ -10,9 +10,20 @@
 
 <!-- Static Top Navigation Bar -->
 <nav class="top-nav">
-    <a href="#about-section">ABOUT ME</a>
-    <a href="#reading-responses">READING RESPONSES</a>
+    <div class="nav-brand">R.D. ALVARADO</div>
+    <button class="menu-toggle" id="menuToggle">MENU</button>
 </nav>
+
+<!-- Full-Screen Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay">
+    <button class="menu-close" id="menuClose">CLOSE [X]</button>
+    <div class="menu-links">
+        <a href="#canvas" class="menu-link">01. THE CANVAS</a>
+        <a href="#about-section" class="menu-link">02. ABOUT ME</a>
+        <a href="#reading-responses" class="menu-link">03. READING RESPONSES</a>
+        <a href="mailto:your.email@example.com" class="menu-link">04. CONTACT</a>
+    </div>
+</div>
 
 <!-- 1. HERO CANVAS -->
 <div class="canvas" id="canvas">
@@ -67,13 +78,17 @@
     </div>
 
     <div class="dropzone" id="zone-enter">
-        DROP  HERE TO VIEW PROJECT INFO
+        VIEW PROJECT INFO
     </div>
     
     <div class="dropzone" id="zone-portfolio">
-        DROP HERE TO ENTER PROJECT WEBSITE
+        ENTER PROJECT WEBSITE
     </div>
 
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-indicator">
+        <a href="#about-section">↓</a>
+    </div>
 
 </div>
 
@@ -88,6 +103,7 @@
 
         <div class="about-columns">
             
+            <!-- Left Column: Architecture & Roots -->
             <div class="about-text-left">
                 <h3>THE PHYSICAL FOUNDATION.</h3>
                 <p>Grounded by a family history in the construction industry, my path to architecture was built on a tangible understanding of how things are put together. I am currently a Master of Architecture candidate at the University of Pennsylvania Weitzman School of Design, having earned my undergraduate degree in architecture from Washington University in St. Louis.</p>
@@ -99,6 +115,7 @@
                 <img src="/portfolio/ricardo-ascii.png" alt="Ricardo Daniel Alvarado">
             </div>
 
+            <!-- Right Column: The Web & Digital -->
             <div class="about-text-right">
                 <h3>THE DIGITAL LANDSCAPE.</h3>
                 <p>Distinct from my physical architectural practice is an ongoing exploration of the digital realm. Through creative coding, interactive design with p5.js, and a deep interest in the history of the web, I build spaces that champion digital autonomy.</p>
@@ -119,8 +136,8 @@
     <a href="/portfolio/rr/portfoliorr.html" class="marquee-link">
         <div class="marquee-container primary-marquee">
             <div class="marquee-content">
-                <span>READING RESPONSES ✦ ENTER THE ARCHIVE ✦ </span>
-                <span>READING RESPONSES ✦ ENTER THE ARCHIVE ✦ </span>
+                <span>READING RESPONSES ✦ EXTRA EXTRA ✦ </span>
+                <span>READING RESPONSES ✦ READ ALL ABOUT IT ✦ </span>
                 <span>READING RESPONSES ✦ ENTER THE ARCHIVE ✦ </span>
                 <span>READING RESPONSES ✦ ENTER THE ARCHIVE ✦ </span>
             </div>
@@ -132,23 +149,45 @@
 <footer class="site-footer">
     <div class="marquee-container secondary-marquee">
         <div class="marquee-content fast-marquee">
-            <span>AVAILABLE FOR POST-GRADUATION EMPLOYMENT (MAY 2026) — NEW YORK / CALIFORNIA — </span>
-            <span>AVAILABLE FOR POST-GRADUATION EMPLOYMENT (MAY 2026) — NEW YORK / CALIFORNIA — </span>
-            <span>AVAILABLE FOR POST-GRADUATION EMPLOYMENT (MAY 2026) — NEW YORK / CALIFORNIA — </span>
+            <span>AVAILABLE FOR POST-GRADUATION EMPLOYMENT (MAY 2026) — NEW YORK / LOS ANGELES — </span>
+            <span>AVAILABLE FOR POST-GRADUATION EMPLOYMENT (MAY 2026) — NEW YORK / LOS ANGELES — </span>
+            <span>AVAILABLE FOR POST-GRADUATION EMPLOYMENT (MAY 2026) — NEW YORK / LOS ANGELES — </span>
         </div>
     </div>
     
     <div class="footer-bottom">
-        <div class="footer-logo">R.D. ALVARADO</div>
+        <div class="footer-logo">RICARDO ALVARADO</div>
         <div class="footer-links">
-            <a href="mailto:your.email@example.com">EMAIL</a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank">LINKEDIN</a>
-            <a href="https://instagram.com/yourprofile" target="_blank">INSTAGRAM</a>
+            <a href="mailto:ricardodalvarado@gmail.com">EMAIL</a>
+            <a href="https://instagram.com/ric.alvaradoo" target="_blank">INSTAGRAM</a>
+            <a href="https://issuu.com/ricardodalvarado316/docs/ricardo_alvarado_projective_scales_" target="_blank">ARCHITECTURE</a>
         </div>
     </div>
 </footer>
 
 <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    // Open Menu
+    menuToggle.addEventListener('click', () => {
+        menuOverlay.classList.add('active');
+    });
+
+    // Close Menu
+    menuClose.addEventListener('click', () => {
+        menuOverlay.classList.remove('active');
+    });
+
+    // Automatically close menu when a link is clicked
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+        });
+    });
+
     const draggables = document.querySelectorAll('.draggable');
     const dropzones = document.querySelectorAll('.dropzone');
     let highestZIndex = 20;

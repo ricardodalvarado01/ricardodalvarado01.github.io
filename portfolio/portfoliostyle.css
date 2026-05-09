@@ -16,7 +16,7 @@ body {
 }
 
 /* -----------------------------
-   TOP NAVIGATION
+   TOP NAVIGATION & MENU
 -------------------------------- */
 .top-nav {
     position: fixed;
@@ -31,25 +31,102 @@ body {
     padding: 0 40px;
     box-sizing: border-box;
     z-index: 1000;
-    border-bottom: 2px solid #5a6eff;
+    border-bottom: 2px solid #E2E6FF;
 }
 
-.top-nav a {
-    text-decoration: none;
-    color: #E2E6FF;
+.nav-brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: 'Space Mono', monospace;
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: uppercase;
+    cursor: pointer;
     letter-spacing: 1px;
     transition: color 0.2s ease;
 }
 
-.top-nav a:hover {
+.menu-toggle:hover {
+    color: #ff3333;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: -100vh; 
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000; 
     color: #ffffff;
+    z-index: 2000; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 10%;
+    box-sizing: border-box;
+    transition: top 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); 
+}
+
+.menu-overlay.active {
+    top: 0; 
+}
+
+.menu-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    background: transparent;
+    border: none;
+    color: #E2E6FF;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.menu-close:hover {
+    color: #ff3333;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #E2E6FF;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-link:hover {
+    color: #ff3333;
+    border-bottom: 2px solid #ff3333;
+}
+
+@media (max-width: 768px) {
+    .menu-link {
+        font-size: 2rem;
+    }
 }
 
 /* -----------------------------
-   MAIN CANVAS
+   MAIN CANVAS (Hero Section)
 -------------------------------- */
 .canvas {
     margin-top: 60px; 
@@ -134,7 +211,7 @@ body {
 -------------------------------- */
 .dropzone {
     position: absolute;
-    bottom: 3px; 
+    bottom: 80px; 
     width: 260px;
     height: 110px;
     border: 2px dashed #ffffff;
@@ -167,7 +244,7 @@ body {
 
 
 /* -----------------------------
-   ABOUT SECTION 
+   ABOUT SECTION (Space Mono Editorial)
 -------------------------------- */
 .about-section {
     background-color: #ffffff; 
@@ -175,6 +252,7 @@ body {
     padding: 120px 20px;
     display: flex;
     justify-content: center;
+    border-top: 4px solid #000;
     border-bottom: 4px solid #000;
 }
 
@@ -207,6 +285,7 @@ body {
     max-width: 800px;
 }
 
+/* Three Column Layout */
 .about-columns {
     display: flex;
     justify-content: space-between;
@@ -247,8 +326,7 @@ body {
 
 .about-image-center img {
     width: 100%;
-    height: 500%;
-    background-color: rgb(0, 0, 0);
+    height: auto;
     max-height: 600px; 
     object-fit: cover;
 }
@@ -339,10 +417,10 @@ body {
 
 .secondary-marquee {
     background-color: #000000;
-    color: #E2E6FF;
+    color: #ffffff;
     font-size: 1.5rem;
     padding: 15px 0;
-    border-bottom: 2px solid #5a6eff;
+    border-bottom: 2px solid #ffffff;
 }
 
 @keyframes marquee-scroll {
@@ -355,7 +433,7 @@ body {
 -------------------------------- */
 .site-footer {
     background-color: #0012c8;
-    color: #E2E6FF;
+    color: #ffffff;
 }
 
 .footer-bottom {
@@ -377,7 +455,7 @@ body {
 }
 
 .footer-links a {
-    color: #E2E6FF;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     font-size: 1.1rem;
