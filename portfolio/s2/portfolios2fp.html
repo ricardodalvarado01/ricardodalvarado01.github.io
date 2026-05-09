@@ -17,7 +17,7 @@
         user-select: text; 
     }
 
-    .container {
+    main.container {
         max-width: 900px;
         margin: 0 auto;
         padding: 60px 20px;
@@ -47,8 +47,23 @@
         margin-bottom: 1.5rem;
     }
 
+    nav.nav-bar {
+        margin-bottom: 40px;
+    }
 
-    .p5-container {
+    .back-btn {
+        color: #E2E6FF;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+
+    section.p5-container {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -88,28 +103,27 @@
         text-decoration: underline;
     }
 
-    .concept-block {
-        background-color: transparent;
-        padding: 0;
+    section.concept-block {
         margin-bottom: 3rem;
     }
 
-    .component-grid {
+    section.component-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         margin-bottom: 3rem;
     }
 
-    .component-box {
+    article.component-box {
         border: 1px solid #E2E6FF;
         padding: 20px;
     }
 
-    .component-title {
+    h3.component-title {
         font-weight: 700;
+        font-size: 1rem;
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin: 0 0 10px 0;
         display: block;
         border-bottom: 1px dashed #E2E6FF;
         padding-bottom: 5px;
@@ -124,29 +138,22 @@
         margin-top: 1rem;
     }
 
-    .sketch-card {
+    article.sketch-card {
         border: 1px solid #E2E6FF;
         display: flex;
         flex-direction: column;
     }
 
-    .sketch-image-placeholder {
-        width: 100%;
-        aspect-ratio: 4/3;
-        background-color: #040510;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        border-bottom: 1px solid #E2E6FF;
-    }
 
-    .sketch-image-placeholder img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  .sketch-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-bottom: 1px solid #E2E6FF;
+    background-color: #ffffff;
+}
 
     .sketch-text {
         padding: 15px;
@@ -158,104 +165,86 @@
         display: block;
         margin-bottom: 5px;
     }
-
-    .nav-bar {
-        margin-bottom: 40px;
-    }
-
-    .back-btn {
-        color: #E2E6FF;
-        text-decoration: none;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-    }
-
-    .back-btn:hover {
-        text-decoration: underline;
-    }
 </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="nav-bar">
+<main class="container">
+    
+    <nav class="nav-bar">
         <a href="/portfolio/portfolio.html" class="back-btn">← Back</a>
-    </div>
+    </nav>
 
     <h1>S2FP: The Weight of the Present</h1>
 
-    <div class="p5-container">
+    <section class="p5-container">
         <iframe src="https://editor.p5js.org/ricardodalvarado01/full/25J9dxFrn" title="p5.js sketch: The Weight of the Present"></iframe>
         
         <div class="p5-links">
             <a href="https://editor.p5js.org/ricardodalvarado01/full/25J9dxFrn" target="_blank">↗ View Full Screen</a>
             <a href="https://editor.p5js.org/ricardodalvarado01/sketches/25J9dxFrn" target="_blank">↗ View Source Code</a>
         </div>
-    </div>
+    </section>
 
-    <div class="concept-block">
+    <section class="concept-block">
         <h2>Concept</h2>
         <p>This is a constructivist-inspired clock designed to combat the anxiety of the future inherent in traditional timekeeping. While standard clock faces project the entirety of the day at once, forcing the user into a constant, capitalist calculation of remaining time, this design utilizes a heavy, subtractive black mask to collapse the viewer’s focus into the "now."</p>
         <p>Inspired by the radical geometric language of El Lissitzky, the clock features 12-point internal tick marks that remain hidden behind a 330-degree rotating aperture. This shutter grants access only to the internal data of the current hour, creating a sense of focus that protects the user from the clutter of the full day; the user is allowed to exist only in the present.</p>
-    </div>
+    </section>
 
-    <div class="component-grid">
-        <div class="component-box">
-            <span class="component-title">The Red Hand</span>
+    <section class="component-grid">
+        <article class="component-box">
+            <h3 class="component-title">The Red Hand</h3>
             <p>Inspired by Constructivist posters, the red minute hand acts as a "needle" or "pointer." It provides a sharp, aggressive contrast to the heavy black void of the hour mask.</p>
-        </div>
-        <div class="component-box">
-            <span class="component-title">The Orbit</span>
+        </article>
+        
+        <article class="component-box">
+            <h3 class="component-title">The Orbit</h3>
             <p>The second hand is reduced to a single, orbiting point. Operating like a satellite, it represents the constant, relentless pulse of life moving around the rigid structure of the present.</p>
-        </div>
-    </div>
+        </article>
+    </section>
 
-    <h2>Process & Sketches</h2>
-    
-    <div class="sketches-grid">
-        <div class="sketch-card">
-            <div class="sketch-image-placeholder">
-                [ Image Placeholder ]
-            </div>
-            <div class="sketch-text">
-                <span class="sketch-label">Sketch 01</span>
-                I knew I wanted to work with the overlapping and masking of shapes, but in this concept, the shaded circles didn't show time as precisely.
-            </div>
-        </div>
+    <section>
+        <h2>Process & Sketches</h2>
+        
+        <div class="sketches-grid">
+            
+            <article class="sketch-card">
+                <img src="/portfolio/s2/sketch1_circles.png" alt="Early sketch exploring overlapping shapes">
+                <div class="sketch-text">
+                    <span class="sketch-label">Sketch 01</span>
+                    I knew I wanted to work with the overlapping and masking of shapes, but in this concept, the shaded circles didn't show time as precisely.
+                </div>
+            </article>
 
-        <div class="sketch-card">
-            <div class="sketch-image-placeholder">
-                [ Image Placeholder ]
-            </div>
-            <div class="sketch-text">
-                <span class="sketch-label">Sketch 02</span>
-                While the first concept was about masking and privacy, this second version explores transparency and intersection. I wanted to see what was gained by allowing the three time-loops to occupy the same space simultaneously.
-            </div>
-        </div>
+            <article class="sketch-card">
+                <img src="/portfolio/s2/sketch2_circles.png" alt="Early sketch exploring reduction and simplicity of shapes">
+                <div class="sketch-text">
+                    <span class="sketch-label">Sketch 02</span>
+                    While the first concept was about masking and privacy, this second version explores transparency and intersection. I wanted to see what was gained by allowing the three time-loops to occupy the same space simultaneously.
+                </div>
+            </article>
 
-        <div class="sketch-card">
-            <div class="sketch-image-placeholder">
-                [ Image Placeholder ]
-            </div>
-            <div class="sketch-text">
-                <span class="sketch-label">Sketch 03</span>
-                This sketch explores hierarchy through line weight. In architecture, we use line weights to distinguish between section cuts (heavy) and detail lines (light). I've applied that same logic to time.
-            </div>
-        </div>
+            <article class="sketch-card">
+                <img src="/portfolio/s2/sketch3_massing.png" alt="Early sketch exploring hierarchy through line weight">
+                <div class="sketch-text">
+                    <span class="sketch-label">Sketch 03</span>
+                    This sketch explores hierarchy through line weight. In architecture, we use line weights to distinguish between section cuts (heavy) and detail lines (light). I've applied that same logic to time.
+                </div>
+            </article>
 
-        <div class="sketch-card">
-            <div class="sketch-image-placeholder">
-                [ Image Placeholder ]
-            </div>
-            <div class="sketch-text">
-                <span class="sketch-label">Sketch 04</span>
-                A combination of a couple of the concepts, moving towards the main concept of isolating the present. I felt that I didn't need all the seconds, just a pulsating one to further enhance the present. 
-            </div>
-        </div>
-    </div>
+            <article class="sketch-card">
+                <img src="/portfolio/s2/sketch4_finalized.png" alt="Approaching the final concept, this sketch combines the masking of sketch 1 with the hierarchy of sketch 3.">
+                <div class="sketch-text">
+                    <span class="sketch-label">Sketch 04</span>
+                    A combination of a couple of the concepts, moving towards the main concept of isolating the present. I felt that I didn't need all the seconds, just a pulsating one to further enhance the present. 
+                </div>
+            </article>
 
-</div>
+        </div>
+    </section>
+
+</main>
 
 </body>
 </html>

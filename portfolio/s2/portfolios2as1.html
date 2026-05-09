@@ -7,12 +7,20 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
+    /* Global Variables for easy maintenance */
+    :root {
+        --bg-blue: #0014f4;
+        --text-light: #E2E6FF;
+        --accent-red: #ff3333;
+        --font-mono: 'Space Mono', monospace;
+    }
+
     body {
         margin: 0;
         padding: 0;
-        background-color: #0014f4; 
-        font-family: 'Space Mono', monospace;
-        color: #E2E6FF; 
+        background-color: var(--bg-blue); 
+        font-family: var(--font-mono);
+        color: var(--text-light); 
         line-height: 1.6;
         user-select: text; 
     }
@@ -23,13 +31,31 @@
         padding: 60px 20px;
     }
 
+    /* Navigation */
+    nav.nav-bar {
+        margin-bottom: 40px;
+    }
+
+    .back-btn {
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .back-btn:hover {
+        text-decoration: underline;
+    }
+
+    /* Typography */
     h1 {
         font-size: 2rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: -1px;
         margin-bottom: 2rem;
-        border-bottom: 2px solid #E2E6FF;
+        border-bottom: 2px solid var(--text-light);
         padding-bottom: 10px;
     }
 
@@ -40,7 +66,7 @@
         margin-top: 3rem;
         margin-bottom: 1rem;
         letter-spacing: -0.5px;
-        border-bottom: 1px dashed #E2E6FF;
+        border-bottom: 1px dashed var(--text-light);
         padding-bottom: 5px;
     }
 
@@ -49,9 +75,8 @@
         margin-bottom: 1.5rem;
     }
 
-    .concept-block {
-        background-color: transparent;
-        padding: 0;
+    /* Layout Blocks */
+    section.concept-block {
         margin-bottom: 3rem;
     }
 
@@ -62,8 +87,8 @@
         margin-bottom: 3rem;
     }
 
-    .box {
-        border: 1px solid #E2E6FF;
+    article.box {
+        border: 1px solid var(--text-light);
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -74,97 +99,103 @@
         text-transform: uppercase;
         margin-bottom: 15px;
         display: block;
-        color: #E2E6FF;
+        color: var(--text-light);
     }
 
-    .sticker-showcase {
-        border: 1px solid #ff3333; /* Constructivist red accent */
+
+    figure.sticker-showcase {
+        border: 1px solid var(--accent-red);
         background-color: #040510;
         padding: 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: 3rem;
+        margin: 0 0 3rem 0; /* Replaces default figure margins */
         text-align: center;
     }
 
-    .sticker-placeholder {
+    .sticker-wrapper {
         width: 150px;
         height: 150px;
-        border: 2px dashed #ff3333;
-        border-radius: 50%; /* Making it round to simulate a sticker */
+        border: 2px dashed var(--accent-red);
+        border-radius: 50%; 
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        color: #ff3333;
         margin-bottom: 20px;
+        overflow: hidden; /* Ensures the image doesn't break the circle */
     }
 
-    .nav-bar {
-        margin-bottom: 40px;
+    .sticker-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    .back-btn {
-        color: #E2E6FF;
-        text-decoration: none;
+    figcaption.sticker-caption {
+        margin: 0;
+        color: var(--accent-red);
         font-weight: 700;
         text-transform: uppercase;
         font-size: 0.9rem;
     }
 
-    .back-btn:hover {
-        text-decoration: underline;
+    @media (max-width: 768px) {
+        .grid-2col {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="nav-bar">
+<main class="container">
+    
+    <nav class="nav-bar">
         <a href="/portfolio/portfolio.html" class="back-btn">← Back</a>
-    </div>
+    </nav>
 
     <h1>S2AS1: ART OF THE WEB/RING</h1>
 
-    <div class="concept-block">
+    <section class="concept-block">
         <p>For this collaborative class assignment, we were tasked with designing and deploying modular code to link all of our individual web publications into a continuous, looping Web Ring. The challenge was to retroactively patch this navigation feature into our pre-existing sites without disrupting their established visual identities or breaking the user experience.</p>
-    </div>
+    </section>
 
-    <div class="sticker-showcase">
-        <div class="sticker-placeholder">
-<SRC:m></SRC:m>
+    <figure class="sticker-showcase">
+        <div class="sticker-wrapper">
+            <img src="images/webring.gif" alt="Modular Node Sticker">
         </div>
-        <p style="margin: 0; color: #ff3333; font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">The Modular Node</p>
-    </div>
+        <figcaption class="sticker-caption">The Modular Node</figcaption>
+    </figure>
 
-    <h2>Design & Integration Strategy</h2>
-    
-    <div class="grid-2col">
-        <div class="box">
-            <span class="box-title">The Sticker Motif</span>
-            <p>Rather than dropping a generic, hyperlinked text block or a standard button onto my page, I designed a specific "sticker" icon to serve as my node in the Web Ring. I thought carefully about how to incorporate this visual within the context of my existing website design. The sticker acts as a diegetic element—it feels like it naturally belongs in the environment rather than looking like an intrusive, mandatory class requirement.</p>
-        </div>
+    <section>
+        <h2>Design & Integration Strategy</h2>
         
-        <div class="box">
-            <span class="box-title">Reassigning Hierarchy</span>
-            <p>While the obvious solution would be to place the Web Ring link on the starter/home page, I intentionally decided against it. I placed the sticker on the second page of my site, which focuses on the discography. This decision retroactively shifted the hierarchy of my publication, turning a deeper page into an active transit hub.</p>
-        </div>
+        <div class="grid-2col">
+            <article class="box">
+                <span class="box-title">The Sticker Motif</span>
+                <p>Rather than dropping a generic, hyperlinked text block or a standard button onto my page, I designed a specific "sticker" icon to serve as my node in the Web Ring. I thought carefully about how to incorporate this visual within the context of my existing website design. The sticker acts as a diegetic element—it feels like it naturally belongs in the environment rather than looking like an intrusive, mandatory class requirement.</p>
+            </article>
+            
+            <article class="box">
+                <span class="box-title">Reassigning Hierarchy</span>
+                <p>While the obvious solution would be to place the Web Ring link on the starter/home page, I intentionally decided against it. I placed the sticker on the second page of my site, which focuses on the discography. This decision retroactively shifted the hierarchy of my publication, turning a deeper page into an active transit hub.</p>
+            </article>
 
-        <div class="box">
-            <span class="box-title">Controlling User Flow</span>
-            <p>By burying the exit link on the second page, I actively manipulated the user journey. When a visitor arrives at my site from the previous student's page in the ring, they aren't immediately presented with the exit door. They are forced to wander a bit into my own introductory content, establishing context before they are allowed to hop to the next user's publication.</p>
-        </div>
+            <article class="box">
+                <span class="box-title">Controlling User Flow</span>
+                <p>By burying the exit link on the second page, I actively manipulated the user journey. When a visitor arrives at my site from the previous student's page in the ring, they aren't immediately presented with the exit door. They are forced to wander a bit into my own introductory content, establishing context before they are allowed to hop to the next user's publication.</p>
+            </article>
 
-        <div class="box">
-            <span class="box-title">The Modular Code</span>
-            <p>The code itself was designed to be lightweight and modular so it could be easily injected into the existing HTML/CSS structure. It connects the fragmented class projects into a single, cohesive network, honoring the early-internet tradition of web rings while prioritizing modern layout constraints.</p>
+            <article class="box">
+                <span class="box-title">The Modular Code</span>
+                <p>The code itself was designed to be lightweight and modular so it could be easily injected into the existing HTML/CSS structure. It connects the fragmented class projects into a single, cohesive network, honoring the early-internet tradition of web rings while prioritizing modern layout constraints.</p>
+            </article>
         </div>
-    </div>
+    </section>
 
-</div>
+</main>
 
 </body>
 </html>
